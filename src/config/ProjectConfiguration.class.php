@@ -5,8 +5,8 @@ sfCoreAutoload::register();
 
 class ProjectConfiguration extends sfProjectConfiguration
 {
-  public function setup()
-  {
-    $this->enablePlugins('sfDoctrinePlugin', 'ciOrmVanillaPlugin');
-  }
+    public function setup()
+    {
+        $this->enablePlugins('sfDoctrinePlugin', 'ciOrmVanillaPlugin');
+    }
 }
