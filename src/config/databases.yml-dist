@@ -5,6 +5,6 @@ all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn:      mysql:host=localhost;dbname=zeitgeist.musiques-incongrues.net
-      username: root
-      password: 
+      dsn:      mysql:host=@db.vanilla.host@;dbname=@db.vanilla.name@
+      username: @db.vanilla.username@
+      password: @db.vanilla.password@

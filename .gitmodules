@@ -4,3 +4,9 @@
 [submodule "src/lib/vendor/symfony"]
 	path = src/lib/vendor/symfony
 	url = https://github.com/symfony/symfony1.git
+[submodule "var/liquibase"]
+	path = var/liquibase
+	url = https://github.com/contructions-incongrues/liquibase.musiques-incongrues.net
+[submodule "src/plugins/ciOrmVanillaPlugin"]
+	path = src/plugins/ciOrmVanillaPlugin
+	url = git@github.com:contructions-incongrues/ciOrmVanillaPlugin.git

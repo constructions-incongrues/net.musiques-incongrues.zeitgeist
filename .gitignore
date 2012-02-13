@@ -5,3 +5,6 @@ src/log/*
 # editors
 *.swp
 *~
+
+# dist files
+src/config/databases.yml
