@@ -1,6 +1,8 @@
 # symfony 
 src/cache/*
 src/log/*
+src/lib/*/doctrine/base/*
+src/lib/*/doctrine/*/base/*
 
 # editors
 *.swp
