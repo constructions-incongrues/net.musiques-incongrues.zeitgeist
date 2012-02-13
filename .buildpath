@@ -114,5 +114,8 @@
 	<buildpathentry kind="src" path="src/plugins/ciOrmVanillaPlugin/test/fixtures/project/test/bootstrap"/>
 	<buildpathentry kind="src" path="src/test/bootstrap"/>
 	<buildpathentry kind="src" path="src/web"/>
+	<buildpathentry kind="src" path="src/apps/frontend/modules"/>
+	<buildpathentry kind="src" path="src/lib/filter"/>
+	<buildpathentry kind="src" path="src/lib/model"/>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
 </buildpath>
