@@ -1,0 +1,7 @@
+# symfony 
+src/cache/*
+src/log/*
+
+# editors
+*.swp
+*~
