@@ -10,3 +10,6 @@ src/lib/*/doctrine/*/base/*
 
 # dist files
 src/config/databases.yml
+
+# configuration profiles
+etc/prod
