@@ -20,8 +20,10 @@
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/css/lib/960.gs/text.css" />
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/css/lib/960.gs/960_14_col.css" />
 
+    <link rel="shortcut icon" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/favicon.ico">
+    <link rel="apple-touch-icon" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/apple-touch-icon.png">
+
     <link rel="stylesheet" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/css/ananas.css">
-    <script src="<?php echo $sf_request->getRelativeUrlRoot() ?>/js/libs/modernizr-2.0.6.min.js"></script>
 </head>
 
 <body>
