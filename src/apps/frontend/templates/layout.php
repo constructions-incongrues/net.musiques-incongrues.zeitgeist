@@ -8,22 +8,24 @@
 
 <head>
 <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title><?php echo $sf_response->getTitle() ?> | Musiques Incongrues</title>
 
-    <title><?php echo $sf_response->getTitle() ?></title>
-    <meta name="description" content="Un résumé hebdomadaire de l'activité du forum des Musiques Incongrues">
-    <meta name="author" content="Constructions Incongrues">
-
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-
+    <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/css/lib/960.gs/reset.css" />
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/css/lib/960.gs/text.css" />
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/css/lib/960.gs/960_14_col.css" />
+    <link rel="stylesheet" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/css/ananas.css">
 
+    <!-- Icons -->
     <link rel="shortcut icon" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/favicon.ico">
     <link rel="apple-touch-icon" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/apple-touch-icon.png">
 
-    <link rel="stylesheet" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/css/ananas.css">
+    <!-- Metas -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+<?php foreach ($sf_response->getMetas() as $name => $content): ?>
+    <meta property="<?php echo $name ?>" content="<?php echo $content ?>" />
+<?php endforeach;?>
 </head>
 
 <body>
