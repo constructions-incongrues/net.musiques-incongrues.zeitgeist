@@ -28,26 +28,18 @@
 
     <div class="container_14">
 
-        <div class="grid_3 logo">
+        <div class="grid_3">
             <h1 class="zeit"><a href="<?php echo url_for('@homepage') ?>" title="Chaque semaine, une compilation de ce qui a été posté sur le forum des Musiques Incongrues : sorties, mixes, collections monomaniaques et autres merveilles. C'est le Zeitgeist Incongru.">Zeit</a></h1>
             <h1 class="geist" ><a href="<?php echo url_for('@homepage') ?>" title="Chaque semaine, une compilation de ce qui a été posté sur le forum des Musiques Incongrues : sorties, mixes, collections monomaniaques et autres merveilles. C'est le Zeitgeist Incongru.">geist</a></h1>
-        </div><!-- end of grid_3 logo -->
 
-        <div class="grid_11 numero">
-<?php include_slot('zeitgeist_header') ?>
-        </div><!-- end of grid_10-->
-
-        <div class="clear"></div>
-
-        <div class="grid_3">
             <ul class="nav">
                 <li><a href="/issues.xml">RSS</a></li>
-                <li><a class="share" href="http://facebook.com/sharer.php?u=http://zeitgeist.musiques-incongrues.net/issues/1">PARTAGER</a></li>
-                <li><a href="mailto:contact@musiques-incongrues.net">CONTACT</a></li>
-                <li><a href="#TODO">MAILING LIST</a></li>
+                <li><a class="share" href="http://facebook.com/sharer.php?u=http://zeitgeist.musiques-incongrues.net/issues/1">Partager</a></li>
+                <li><a href="mailto:contact@musiques-incongrues.net">Contact</a></li>
+                <li><a href="#TODO">Mailing List</a></li>
             </ul>
             <div class="pagination">
-                <h1>ARCHIVES</h1>
+                <h1>Archives</h1>
                 <ul>
                     <li class="active"><a href="/issues/1" title="Période du 6/05/2011 au 12/05/2011">▲ 1</a></li>
                     <li><a href="/issues/1" title="Période du 6/05/2011 au 12/05/2011">▲ 2</a></li>

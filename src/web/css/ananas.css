@@ -50,7 +50,7 @@
  *********************************/
 
   .nav li {  transition: all .5s; list-style-type:none;border-left:2px solid #0099FF;background-color:#94d5ff; padding:8px 2px 2px 10px; margin:0px 0px 5px 0px;}
-  .nav li a { color:#000; font-size:1.2em; letter-spacing:2px;text-decoration:none;  }
+  .nav li a { color:#000; font-size:1.2em; letter-spacing:2px;text-decoration:none;text-transform:uppercase; }
   .nav li:hover { transition: all .5s;  width:80px;}
   .nav li.active  {background-color:#0099FF; color:#FFF;}
   .nav li a:hover { color:#0099FF;text-decoration:none;}
@@ -66,9 +66,6 @@
   .pagination ul li a {color:#000; text-decoration:none; font-size:1.6em; background-color:#94D5FF;padding:8px; border:0px; }
   .pagination li a:hover {color:#fff;background-color:#000;transform: scale(0.9) rotate(-20deg); }
   .pagination ul li.active a {color:#FFF;background-color:#000;background-image:none;}
-/*
- * content
- ******************************/
 
 /*
  *  header */
