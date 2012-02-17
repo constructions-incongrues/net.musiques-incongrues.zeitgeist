@@ -21,7 +21,10 @@ function slugify($text)
 
 <div class="grid_11">
     <div class="grid_11 numero alpha omega">
-        <h1 class="last">Zeitgeist #<?php echo $zeitgeist->zeitgeistid ?> - du <?php echo $zeitgeist->datestart ?> au <?php echo $zeitgeist->dateend ?></h1>
+        <h1 class="last">
+            Zeitgeist #<?php echo $zeitgeist->zeitgeistid ?><br />
+            du <?php echo $dateStartPretty ?> au <?php echo $dateEndPretty ?>
+        </h1>
         <p class="presentation">
         <?php echo nl2br($zeitgeist->description) ?>
         </p>
@@ -55,10 +58,10 @@ function slugify($text)
 
     <div class="grid_6 events omega">
         <h2><a href="http://www.musiques-incongrues.net/forum/events/" title="Consultez l'agenda du forum des Musiques Incongrues">LA SEMAINE PROCHAINE, ON SORT !</a></h2>
-<?php foreach (array_keys($events) as $date): ?>
+<?php foreach (array_keys($events) as $timestamp): ?>
         <dl>
-            <dt><?php echo $date ?></dt>
-    <?php foreach ($events[$date] as $event): ?>
+            <dt><?php echo strftime('%A %e', $timestamp) ?></dt>
+    <?php foreach ($events[$timestamp] as $event): ?>
             <dd>
                 <span class="ville">
                     <a href="http://www.musiques-incongrues.net/forum/events/<?php echo strtolower($event['LUM_Event']['city']) ?>"><?php echo $event['LUM_Event']['city'] ?></a>

@@ -32,16 +32,32 @@ class zeitgeistActions extends sfActions
         // Fetch Zeitgeist
         $zeitgeist = LUM_ZeitgeistTable::getInstance()->findOneByZeitgeistid($request->getParameter('id'));
 
+        // Date handling
+        $dateTimeStart = DateTime::createFromFormat('Y-m-d', $zeitgeist->datestart);
+        $dateTimeEnd = DateTime::createFromFormat('Y-m-d', $zeitgeist->dateend);
+        $formatStart = '%e %B %Y';
+        $formatEnd = '%e %B %Y';
+        if ($dateTimeStart->format('j') == 1) {
+            $formatStart = '%eer %B %Y';
+        }
+        if ($dateTimeEnd->format('j') == 1) {
+            $formatEnd = '%eer %B %Y';
+        }
+        $datestartPretty = strftime($formatStart, $dateTimeStart->getTimestamp());
+        $dateendPretty = strftime($formatEnd, $dateTimeEnd->getTimestamp());
+
         // Redirect to 404 if zeitgeist cannot be found
         $this->forward404Unless($zeitgeist);
 
         // Sort events
         $events = array();
         foreach ($zeitgeist->getUpcomingEvents() as $event) {
-            if (!isset($events[$event['LUM_Event']['date']])) {
-                $events[$event['LUM_Event']['date']] = array();
+            $date = DateTime::createFromFormat('Y-m-d', $event['LUM_Event']['date']);
+            $timestamp = $date->getTimestamp();
+            if (!isset($events[$timestamp])) {
+                $events[$timestamp] = array();
             }
-            $events[$event['LUM_Event']['date']][] = $event;
+            $events[$timestamp][] = $event;
         }
 
         // Metadata
@@ -63,6 +79,8 @@ class zeitgeistActions extends sfActions
         // Pass data to view
         $this->zeitgeist = $zeitgeist;
         $this->events = $events;
+        $this->dateStartPretty = $datestartPretty;
+        $this->dateEndPretty = $dateendPretty;
 
         // Select template
         return sfView::SUCCESS;
