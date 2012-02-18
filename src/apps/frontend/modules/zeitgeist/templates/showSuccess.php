@@ -95,6 +95,7 @@ function slugify($text)
     </div><!-- end of grid_1 newmember -->
 </div>
 
+<div class="clear"></div>
 
 <div class="grid_14 footer">
     <p class="about">
