@@ -19,10 +19,10 @@ function slugify($text)
 }
 ?>
 
-<div class="grid_11">
+<div class="grid_11 content">
     <div class="grid_11 numero alpha omega">
         <h1 class="last">
-            Zeitgeist #<?php echo $zeitgeist->zeitgeistid ?><br />
+            Zeitgeist #<?php echo $zeitgeist->zeitgeistid ?>
             du <?php echo $dateStartPretty ?> au <?php echo $dateEndPretty ?>
         </h1>
         <p class="presentation">

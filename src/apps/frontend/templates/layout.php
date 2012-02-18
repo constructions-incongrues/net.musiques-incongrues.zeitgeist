@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/css/lib/960.gs/reset.css" />
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/css/lib/960.gs/text.css" />
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/css/lib/960.gs/960_14_col.css" />
-    <link rel="stylesheet" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/css/ananas.css">
+    <link rel="stylesheet" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/css/ananas.css?v=1">
 
     <script src="<?php echo $sf_request->getRelativeUrlRoot() ?>/js/prefixfree.min.js"></script>
 
@@ -34,9 +34,14 @@
 
     <div class="container_14">
 
-        <div class="grid_3">
-            <h1 class="zeit"><a href="<?php echo url_for('@homepage') ?>" title="Chaque semaine, une compilation de ce qui a été posté sur le forum des Musiques Incongrues : sorties, mixes, collections monomaniaques et autres merveilles. C'est le Zeitgeist Incongru.">Zeit</a></h1>
-            <h1 class="geist" ><a href="<?php echo url_for('@homepage') ?>" title="Chaque semaine, une compilation de ce qui a été posté sur le forum des Musiques Incongrues : sorties, mixes, collections monomaniaques et autres merveilles. C'est le Zeitgeist Incongru.">geist</a></h1>
+        <div class="grid_3 sidebar">
+
+   <h1 class="logo"  >
+		<a href="<?php echo url_for('@homepage') ?>" title="Chaque semaine, une compilation de ce qui a été posté sur le forum des Musiques Incongrues : sorties, mixes, collections monomaniaques et autres merveilles. C'est le Zeitgeist Incongru." class="zeit">Zeit</a>
+		<a href="<?php echo url_for('@homepage') ?>" title="Chaque semaine, une compilation de ce qui a été posté sur le forum des Musiques Incongrues : sorties, mixes, collections monomaniaques et autres merveilles. C'est le Zeitgeist Incongru." class="geist">Geist</a>
+	</h1> 
+	
+	<h2 class="descr">Chaque semaine, le Zeitgeist Incongru résume l'actualité du forum des <a href="">Musiques Incongrues</a></h2>
 
             <ul class="nav">
                 <li><a href="/issues.xml">RSS</a></li>
@@ -44,6 +49,7 @@
                 <li><a href="mailto:contact@musiques-incongrues.net">Contact</a></li>
                 <li><a href="#TODO">Mailing List</a></li>
             </ul>
+            
             <div class="pagination">
                 <h1>Archives</h1>
                 <ul>
