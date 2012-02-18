@@ -61,8 +61,15 @@ class zeitgeistActions extends sfActions
         }
 
         // Metadata
-        $title = sprintf('Zeitgeist Incongru #%d : du %s au %s', $zeitgeist->zeitgeistid, $zeitgeist->datestart, $zeitgeist->dateend);
+        $title = sprintf('Zeitgeist Incongru #%d : du %s au %s', $zeitgeist->zeitgeistid, $datestartPretty, $dateendPretty);
         $description = "Chaque semaine, le Zeitgeist Incongru résume l'actualité du forum des Musiques Incongrues : nouvelles productions, mixes et autres pièces. Il propose aussi un agenda des concerts pour la semaine à venir.";
+        $description .= sprintf(
+            "\n".'Cette semaine : %d mixes, %d sorties, %d nouveaux venus et %d évènements à venir !',
+            count($zeitgeist->getMixes()),
+            count($zeitgeist->getReleases()),
+            count($zeitgeist->getUsers()),
+            count($zeitgeist->getUpcomingEvents())
+        );
         $ogp = array(
             'title' => $title,
             'description' => $description,
