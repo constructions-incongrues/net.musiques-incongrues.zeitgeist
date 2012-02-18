@@ -76,7 +76,7 @@ function slugify($text)
 
     <div class="grid_6 compte_rendu alpha">
         <h2><a href="http://github.com/constructions-incongrues/">Ananas Ex Machina !</a></h2>
-<?php echo $zeitgeist->getAnanasExMachinaFormated() ?>
+	<p><?php echo $zeitgeist->getAnanasExMachinaFormated() ?></p>
     </div><!-- end of grid_6 compte_rendu -->
 
     <div class="grid_5 picsofweek omega">
@@ -93,6 +93,15 @@ function slugify($text)
 <?php endforeach; ?>
         </ul>
     </div><!-- end of grid_1 newmember -->
+</div>
+
+
+<div class="grid_14 footer">
+<p>	
+Ce projet est développé par 
+<a href="http://wwww.constructions-incongrues.net">Constructions Incongrues </a>
+et hébergé par <a href="http://www.pastis-hosting.net">Pastis Hosting</a>
+</p>
 </div>
 
 <div class="clear"></div>

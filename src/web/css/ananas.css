@@ -70,12 +70,14 @@ padding-bottom:20px;
   a.zeit 
   {
   font-size:3em;
+  font-weight:900;
   background-color:#0099FF;
   }
   
   a.geist 
   {
   font-size:2em;
+  font-weight:bold;
   background-color:#000;
   margin-top:-25px;
   }
@@ -346,7 +348,6 @@ border-bottom:1px dotted #000;
  
   .compte_rendu li a {color:#000;text-decoration:none;font-size:1.2em;}
 
-
  /* New Member
   ***************/
   
@@ -394,3 +395,27 @@ border-bottom:1px dotted #000;
 		}
 } 
 */
+
+/* 
+ * FOOTER
+ ****************/
+ .footer 
+ {
+text-align:right;
+float:right;
+padding:4px 8px 0px 2px;
+font-size:1em;
+background-color:#EEE;	
+border-top:2px solid #666;
+display:none;
+}
+
+ .footer p 
+ {
+ 
+ }
+ .footer a 
+ {
+ color:#000;
+ text-decoration:none;
+ font-weight:bold;}
