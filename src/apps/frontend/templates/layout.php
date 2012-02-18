@@ -55,8 +55,10 @@
                     <li><a href="/issues/1" title="Période du 6/05/2011 au 12/05/2011">▲ 2</a></li>
                 </ul>
                 -->
-                <h2 class="moreepisode previous"><a href="">Previous</a></h2>
-                <h2 class="moreepisode next"><a href="">Next</a> </h2>
+<?php if ($sf_request->getParameter('id') > 1): ?>
+                <h2 class="moreepisode previous"><a href="<?php echo url_for('@zeitgeist_show?id='.($sf_request->getParameter('id') - 1)) ?>">Previous</a></h2>
+<?php endif; ?>
+                <h2 class="moreepisode next"><a href="<?php echo url_for('@zeitgeist_show?id='.($sf_request->getParameter('id') + 1)) ?>">Next</a> </h2>
             </div><!-- end of.pagination -->
         </div><!-- end of grid_3 -->
 
@@ -95,7 +97,7 @@
     </script>
 
     <script>
-                    var _gaq = [ [ '_setAccount', 'UA-XXXXX-X' ],
+                    var _gaq = [ [ '_setAccount', 'UA-24022536-1' ],
                             [ '_trackPageview' ] ]; // Change UA-XXXXX-X to be your site's ID
                     (function(d, t) {
                         var g = d.createElement(t), s = d
