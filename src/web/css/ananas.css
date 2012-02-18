@@ -163,7 +163,7 @@ padding-bottom:20px;
 
   .pagination h1 
   { 
-   box-shadow: 2px 2px 1px #EEE;
+   box-shadow: 2px 2px 1px #f7f4f4;
   font-size:2.5em;
   letter-spacing:2px;
   text-align:center;
@@ -180,7 +180,7 @@ padding-bottom:20px;
   color:#000;
   text-decoration:none;
   text-transform:uppercase;
-  background-color:#BBB;
+  background-color:#bbb;
   padding:20px 10px 10px 10px;
   text-align:center;
   display:block;
@@ -281,7 +281,7 @@ padding-bottom:20px;
   .presentation 
   {
   font-size:1.2em;
-  padding:5px;
+  padding:10px 5px 5px 5px;
   color:#000;
   font-weight:bold;
   background-image:none;
@@ -289,6 +289,7 @@ padding-bottom:20px;
   transition: all .0s;
   background-color: #f7f4f4;
   margin-bottom:20px;
+  text-transform:uppercase;
   }	
   
   .presentation:hover 
@@ -328,6 +329,10 @@ padding-bottom:20px;
   .releases .image a:hover,.events .image a:hover {color:#0099FF;}
   .releases .audio a:hover, .events .audio a:hover {color:#000;}
 
+.events .ville a
+{
+text-transform:capitalize;
+color:#666;}
 .releases, .compte_rendu, .events,.picsofweek
 {
     transition:.7s ease-in;
@@ -339,14 +344,14 @@ width:700px!important;
 margin-right:-360px;
 padding:0px 0px 0px 0px;
 z-index:2000;
-background-color:#EEE;
+background-color:#f7f4f4;
 }
 
 .events:hover,.picsofweek:hover 
 {
 width:700px!important;
 margin-left:-360px!important;
-background-color:#EEE;
+background-color:#f7f4f4;
 padding:0px 0px 0px 0px;
 }
 
@@ -372,11 +377,15 @@ border-bottom:1px solid #CCC;
 font-size:1em;
 }
 
+.releases dd:first-letter, .events dd:first-letter
+{
+text-transform:capitalize;
+}
 .releases dd:hover,.events dd:hover 
 {
 background-color:#FFF;
 color:#000;
-border-bottom:1px solid #BBB;
+border-bottom:1px solid #666;
 }
 
 .newmember ul,.compte_rendu ul{list-style-type:square;}
@@ -391,7 +400,7 @@ border-bottom:1px solid #BBB;
   
  .newmember {margin-top:10px;}
  .newmember li {list-style-type:square;display:inline;}
- .newmember li a {color:#000;text-transform:uppercase;font-size:1.9em;padding:10px 5px 5px 5px;background-color:#DDD;text-decoration:none;font-weight:bold;}
+ .newmember li a {color:#000;text-transform:uppercase;font-size:1.5em;padding:10px 5px 5px 5px;background-color:#DDD;text-decoration:none;font-weight:bold;}
  .newmember li a:hover {color:#FFF; background-color:#000;    transition: all .2s; 
 }
 
