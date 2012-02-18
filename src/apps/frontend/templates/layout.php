@@ -41,7 +41,7 @@
         <a href="<?php echo url_for('@homepage') ?>" class="geist">Geist</a>
     </h1>
 
-    <h2 class="descr">Chaque semaine, le Zeitgeist Incongru résume l'actualité du <a href="http://www.musiques-incongrues.net">forum des Musiques Incongrues</a></h2>
+    <h2 class="descr">Chaque semaine, le Zeitgeist Incongru résume l'actualité du forum des <a href="http://www.musiques-incongrues.net">Musiques Incongrues</a></h2>
 
             <ul class="nav">
                 <li><a class="share" target="_blank" href="http://facebook.com/sharer.php?u=http://<?php echo $sf_request->getHost() ?><?php echo $_SERVER['REQUEST_URI']?>">Partager</a></li>
@@ -55,8 +55,8 @@
                     <li><a href="/issues/1" title="Période du 6/05/2011 au 12/05/2011">▲ 2</a></li>
                 </ul>
                 -->
-                <h2 class="moreepisode"><a href="">Previous</a></h2>
-                <h2 class="moreepisode"><a href="">Next</a> </h2>
+                <h2 class="moreepisode previous"><a href="">Previous</a></h2>
+                <h2 class="moreepisode next"><a href="">Next</a> </h2>
             </div><!-- end of.pagination -->
         </div><!-- end of grid_3 -->
 

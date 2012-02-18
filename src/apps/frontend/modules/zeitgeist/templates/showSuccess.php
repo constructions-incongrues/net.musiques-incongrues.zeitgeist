@@ -100,7 +100,9 @@ function slugify($text)
 <p>	
 Ce projet est développé par 
 <a href="http://wwww.constructions-incongrues.net">Constructions Incongrues </a>
-et hébergé par <a href="http://www.pastis-hosting.net">Pastis Hosting</a>
+et hébergé par <a href="http://www.pastis-hosting.net">Pastis Hosting</a>. 
+        Le code source du projet est <a href="https://github.com/contructions-incongrues/musique-approximative">distribué</a> sous licence 
+        <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU AGPLv3</a>.
 </p>
 </div>
 

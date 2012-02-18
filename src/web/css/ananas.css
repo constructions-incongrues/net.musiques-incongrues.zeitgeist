@@ -169,21 +169,53 @@ padding-bottom:20px;
   padding:10px 2px 0px 2px;
   background-color:#000;
   color:#FFF;
+  text-transform:uppercase;
   }
   
-  .pagination h2 a 
+  .pagination h2.next a 
   {
   font-size:2.2em;
   letter-spacing:2px;
   color:#000;
   text-decoration:none;
   text-transform:uppercase;
-  background-color:#DDD;
+  background-color:#BBB;
   padding:20px 10px 10px 10px;
   text-align:center;
+  display:block;
+
   }
 
-  .pagination h2 a:hover
+  .pagination h2.next 
+  {
+    margin-top:-20px;
+  }
+  .pagination h2.previous a 
+  {
+    display:block;
+
+  font-size:0.7em;
+  letter-spacing:2px;
+  color:#000;
+  text-decoration:none;
+  text-transform:uppercase;
+  background-color:#DDD;
+  padding:10px 24px 5px 24px;
+  text-align:center;
+    transition: all .2s; 
+
+  }
+  
+  .pagination h2.previous a:hover 
+  {
+    font-size:1em;
+    background-color:#000;
+    color:#FFF;
+
+  }
+
+  
+  .pagination h2.next a:hover
   {
   color:#FFF;
   font-size:2.5em;
@@ -401,21 +433,29 @@ border-bottom:1px dotted #000;
  ****************/
  .footer 
  {
-text-align:right;
+text-align:center;
 float:right;
-padding:4px 8px 0px 2px;
+padding:4px 8px 0px 12px;
 font-size:1em;
 background-color:#EEE;	
 border-top:2px solid #666;
-display:none;
+margin-right:0px;
 }
 
  .footer p 
  {
- 
+ padding-top:4px; 
  }
+ 
  .footer a 
  {
  color:#000;
  text-decoration:none;
- font-weight:bold;}
+ font-weight:bold;
+ }
+ 
+ .footer a:hover 
+ {
+ background-color:#000;
+ color:#FFF;
+border-bottom:1px dotted #000; }
