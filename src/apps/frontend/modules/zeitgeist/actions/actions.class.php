@@ -99,4 +99,85 @@ class zeitgeistActions extends sfActions
         // Select template
         return sfView::SUCCESS;
     }
+
+    public function executeFeed(sfWebRequest $request)
+    {
+        // Fetch zeitgeists
+        $zeitgeists = LUM_ZeitgeistTable::getInstance()->getLastIssues();
+
+        // Setup zend autoloading
+        require_once(sfConfig::get('sf_lib_dir').'/vendor/zend/library/Zend/Loader/Autoloader.php');
+        Zend_Loader_Autoloader::getInstance();
+
+        // Build feed
+        $feed = new Zend_Feed_Writer_Feed();
+        $feed->setTitle('Le Zeigeist du forum des Musiques Incongrues');
+        $feed->setLink('http://zeitgeist.musiques-incongrues.net');
+        $feed->setFeedLink('http://zeitgeist.musiques-incongrues.net/feeds/news', 'rss');
+        $feed->setDescription("Chaque semaine, le Zeitgeist Incongru résume l'actualité du forum des Musiques Incongrues : nouvelles productions, mixes et autres pièces. Il propose aussi un agenda des concerts pour la semaine à venir.");
+        $feed->addAuthor(
+            array(
+                'name'  => 'Musiques Incongrues',
+                'email' => 'contact@musiques-incongrues.net',
+                'uri'   => 'http://www.musiques-incongrues.net',
+            )
+        );
+        $feed->setDateModified(time());
+
+        foreach ($zeitgeists as $zeitgeist) {
+            // Date handling
+            // TODO : factor in zeitgeist->getTitle()
+            $dateTimeStart = DateTime::createFromFormat('Y-m-d', $zeitgeist->datestart);
+            $dateTimeEnd = DateTime::createFromFormat('Y-m-d', $zeitgeist->dateend);
+            $formatStart = '%e %B %Y';
+            $formatEnd = '%e %B %Y';
+            if ($dateTimeStart->format('j') == 1) {
+                $formatStart = '%eer %B %Y';
+            }
+            if ($dateTimeEnd->format('j') == 1) {
+                $formatEnd = '%eer %B %Y';
+            }
+            $datestartPretty = strftime($formatStart, $dateTimeStart->getTimestamp());
+            $dateendPretty = strftime($formatEnd, $dateTimeEnd->getTimestamp());
+
+            // Build entry
+            $entry = $feed->createEntry();
+            $entry->setTitle(sprintf('Zeitgeist Incongru #%d : du %s au %s', $zeitgeist->zeitgeistid, $datestartPretty, $dateendPretty));
+            $entry->setLink('http://zeitgeist.musiques-incongrues.net/'.$zeitgeist->zeitgeistid);
+            $entry->setDateModified(time());
+            $entry->setDateCreated(time());
+            $entry->setDescription(
+                sprintf(
+                    "\n".'Cette semaine : %d mixes, %d sorties, %d nouveaux venus et %d évènements à venir !',
+                    count($zeitgeist->getMixes()),
+                    count($zeitgeist->getReleases()),
+                    count($zeitgeist->getUsers()),
+                    count($zeitgeist->getUpcomingEvents())
+                )
+            );
+
+            // Build entry content
+            $content = array();
+
+            // Apply markdown transformation to texts
+            require_once(sfConfig::get('sf_lib_dir').'/vendor/markdown-php/markdown.php');
+            $ananasExMachina = Markdown(utf8_encode($zeitgeist->ananasexmachina));
+            $description = Markdown(utf8_encode($zeitgeist->description));
+            $content[] = $description;
+            $entry->setContent(implode("\n", $content));
+
+            // Add entry to feed
+            $feed->addEntry($entry);
+        }
+
+        // Amend decoration
+        sfConfig::set('sf_web_debug', false);
+        $this->setLayout(false);
+
+        // Set response headers
+        $this->getResponse()->setContentType('application/rss+xml');
+
+        // Pass data to view
+        $this->feed = $feed->export('rss');
+    }
 }

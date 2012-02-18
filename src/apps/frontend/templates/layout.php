@@ -16,7 +16,11 @@
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/css/lib/960.gs/960_14_col.css" />
     <link rel="stylesheet" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/css/ananas.css?v=1">
 
+    <!-- prefix-free -->
     <script src="<?php echo $sf_request->getRelativeUrlRoot() ?>/js/prefixfree.min.js"></script>
+
+    <!-- Alternate links -->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://zeitgeist.musiques-incongrues.net/feeds/news" />
 
     <!-- Icons -->
     <link rel="shortcut icon" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/favicon.ico">

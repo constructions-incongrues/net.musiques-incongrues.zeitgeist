@@ -2,6 +2,10 @@
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
 # zeitgeist
+zeitgeist_feed:
+  url:   /feeds/news
+  param: { module: zeitgeist, action: feed }
+
 zeitgeist_show:
   url:   /:id
   param: { module: zeitgeist, action: show }
