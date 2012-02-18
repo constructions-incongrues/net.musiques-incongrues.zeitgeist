@@ -26,14 +26,14 @@ function slugify($text)
             du <?php echo $dateStartPretty ?> au <?php echo $dateEndPretty ?>
         </h1>
         <p class="presentation">
-        <?php echo nl2br($zeitgeist->description) ?>
+        <?php echo $sf_data->getRaw('description') ?>
         </p>
     </div>
 
     <div class="grid_5 releases alpha">
         <h2><a href="http://www.musiques-incongrues.net/forum/releases/" title="Consulter la liste de toutes les sorties musicales disponibles sur le forum des Musiques Incongrues">Du nouveau pour les oreilles</a></h2>
         <dl>
-            <dt>Mixes</dt>
+            <dt><?php echo count($zeitgeist->getMixes()) ?> Mixes</dt>
 <?php foreach($zeitgeist->getMixes() as $mix): ?>
             <dd>
                 <a href="http://www.musiques-incongrues.net/forum/discussion/<?php echo $mix['discussionid'] ?>/<?php echo slugify($mix['name'])?>" title="Consulter la discussion sur le forum des Musiques Incongrues"><?php echo $mix['name'] ?></a>
@@ -43,7 +43,7 @@ function slugify($text)
             </dd>
 <?php endforeach; ?>
 
-            <dt>Sorties</dt>
+            <dt><?php echo count($zeitgeist->getReleases()) ?> Sorties</dt>
 <?php foreach($zeitgeist->getReleases() as $release): ?>
             <dd>
                 <a href="http://www.musiques-incongrues.net/forum/discussion/<?php echo $release['discussionid'] ?>/<?php echo slugify($release['name'] ) ?>" title="Consultez la discussion sur le forum des Musiques Incongrues"><?php echo $release['name'] ?></a>
@@ -76,7 +76,7 @@ function slugify($text)
 
     <div class="grid_6 compte_rendu alpha">
         <h2><a href="http://github.com/constructions-incongrues/">Ananas Ex Machina !</a></h2>
-	<p><?php echo $zeitgeist->getAnanasExMachinaFormated() ?></p>
+        <p><?php echo $sf_data->getRaw('ananasExMachina') ?></p>
     </div><!-- end of grid_6 compte_rendu -->
 
     <div class="grid_5 picsofweek omega">
@@ -86,7 +86,7 @@ function slugify($text)
 
 
      <div class="grid_11 newmember alpha omega">
-        <h2><a href="">Nouveaux Venus</a></h2>
+        <h2><a href=""><?php echo count($zeitgeist->getUsers()) ?> Nouveaux Venus</a></h2>
         <ul>
 <?php foreach($zeitgeist->getUsers() as $user): ?>
             <li><a href="http://www.musiques-incongrues.net/forum/account/<?php echo $user['userid'] ?>"><?php echo $user['name'] ?></a></li>
@@ -97,11 +97,11 @@ function slugify($text)
 
 
 <div class="grid_14 footer">
-<p>	
-Ce projet est développé par 
+<p>
+Ce projet est développé par
 <a href="http://wwww.constructions-incongrues.net">Constructions Incongrues </a>
-et hébergé par <a href="http://www.pastis-hosting.net">Pastis Hosting</a>. 
-        Le code source du projet est <a href="https://github.com/contructions-incongrues/musique-approximative">distribué</a> sous licence 
+et hébergé par <a href="http://www.pastis-hosting.net">Pastis Hosting</a>.
+        Le code source du projet est <a href="https://github.com/contructions-incongrues/musique-approximative">distribué</a> sous licence
         <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU AGPLv3</a>.
 </p>
 </div>

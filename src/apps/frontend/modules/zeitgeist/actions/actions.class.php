@@ -76,11 +76,18 @@ class zeitgeistActions extends sfActions
             $this->getResponse()->addMeta('og:'.$name, $content);
         }
 
+        // Apply markdown transformation to texts
+        require_once(sfConfig::get('sf_lib_dir').'/vendor/markdown-php/markdown.php');
+        $ananasExMachina = Markdown(utf8_encode($zeitgeist->ananasexmachina));
+        $description = Markdown(utf8_encode($zeitgeist->description));
+
         // Pass data to view
         $this->zeitgeist = $zeitgeist;
         $this->events = $events;
         $this->dateStartPretty = $datestartPretty;
         $this->dateEndPretty = $dateendPretty;
+        $this->ananasExMachina = $ananasExMachina;
+        $this->description = $description;
 
         // Select template
         return sfView::SUCCESS;
