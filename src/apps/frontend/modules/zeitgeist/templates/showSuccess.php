@@ -98,7 +98,7 @@ function slugify($text)
 
 <div class="grid_14 footer">
     <p class="about">
-        À PROPOS
+        <span class="apropos">À PROPOS</span>
         <span class="about2">
             Ce projet est développé par
             <a href="http://wwww.constructions-incongrues.net">Constructions Incongrues</a>
