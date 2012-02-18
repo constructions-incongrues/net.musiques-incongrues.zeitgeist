@@ -368,15 +368,15 @@ font-weight:normal;
 text-transform:capitalize;
 padding:5px;
 color:#000;
-border-bottom:1px solid #eee;
+border-bottom:1px solid #CCC;
 }
 
 .releases dd:hover,.events dd:hover 
 {
 background-color:#FFF;
 color:#000;
-border-bottom:1px solid #000;
-}
+border-bottom:1px solid #BBB;
+text-transform:uppercase;}
 
 .newmember ul,.compte_rendu ul{list-style-type:square;}
 
