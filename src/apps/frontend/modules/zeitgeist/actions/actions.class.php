@@ -78,8 +78,8 @@ class zeitgeistActions extends sfActions
 
         // Apply markdown transformation to texts
         require_once(sfConfig::get('sf_lib_dir').'/vendor/markdown-php/markdown.php');
-        $ananasExMachina = Markdown(utf8_encode($zeitgeist->ananasexmachina));
-        $description = Markdown(utf8_encode($zeitgeist->description));
+        $ananasExMachina = Markdown($zeitgeist->ananasexmachina);
+        $description = Markdown($zeitgeist->description);
 
         // Pass data to view
         $this->zeitgeist = $zeitgeist;
