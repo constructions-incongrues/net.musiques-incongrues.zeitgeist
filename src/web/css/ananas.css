@@ -378,7 +378,9 @@ color:#000;
 border-bottom:1px dotted #000;
 }
 
-.newmember ul,.compte_rendu ul{list-style-type:square;}
+.newmember ul,.compte_rendu ul{list-style-type:none;background-color:#FFF;
+color:#000;
+border-bottom:1px dotted #000;}
 
  /* Compte Rendu
   **************/
