@@ -8,3 +8,4 @@ all:
       dsn:      mysql:host=@db.vanilla.host@;dbname=@db.vanilla.name@
       username: @db.vanilla.username@
       password: @db.vanilla.password@
+      encoding: latin1
