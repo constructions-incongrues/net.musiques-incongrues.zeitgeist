@@ -97,3 +97,4 @@ function slugify($text)
 
 <div class="clear"></div>
 
+<script type="text/javascript" src="http://o.aolcdn.com/os_merge/?file=/streampad/sp-player.js&file=/streampad/sp-player-other.js&expsec=86400&ver=11&bgcolor=#000000&trackcolor=#0099F&clickimg=true&progressfrontcolor=FFF&progressbackcolor=0099FF&drawersize=215&btncolor=white-gray"></script>

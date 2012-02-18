@@ -36,5 +36,5 @@ all:
     
     # l10n
     i18n:                   true
-    default_culture:        fr
+    default_culture:        fr_FR
 

@@ -37,11 +37,11 @@
         <div class="grid_3 sidebar">
 
    <h1 class="logo"  >
-		<a href="<?php echo url_for('@homepage') ?>" title="Chaque semaine, une compilation de ce qui a été posté sur le forum des Musiques Incongrues : sorties, mixes, collections monomaniaques et autres merveilles. C'est le Zeitgeist Incongru." class="zeit">Zeit</a>
-		<a href="<?php echo url_for('@homepage') ?>" title="Chaque semaine, une compilation de ce qui a été posté sur le forum des Musiques Incongrues : sorties, mixes, collections monomaniaques et autres merveilles. C'est le Zeitgeist Incongru." class="geist">Geist</a>
-	</h1> 
-	
-	<h2 class="descr">Chaque semaine, le Zeitgeist Incongru résume l'actualité du forum des <a href="">Musiques Incongrues</a></h2>
+        <a href="<?php echo url_for('@homepage') ?>" class="zeit">Zeit</a>
+        <a href="<?php echo url_for('@homepage') ?>" class="geist">Geist</a>
+    </h1>
+
+    <h2 class="descr">Chaque semaine, le Zeitgeist Incongru résume l'actualité du forum des <a href="">Musiques Incongrues</a></h2>
 
             <ul class="nav">
                 <li><a href="/issues.xml">RSS</a></li>
@@ -49,7 +49,7 @@
                 <li><a href="mailto:contact@musiques-incongrues.net">Contact</a></li>
                 <li><a href="#TODO">Mailing List</a></li>
             </ul>
-            
+
             <div class="pagination">
                 <h1>Archives</h1>
                 <ul>
