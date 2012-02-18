@@ -432,39 +432,38 @@ border-bottom:1px dotted #000;
 /* 
  * FOOTER
  ****************/
-p.about 
+.apropos
 {
-background-color:#000!important;
+background-color:#000;
 text-transform:uppercase;
 color:#FFF;
-
 font-size:1em;
 padding:5px;
 float:right;
+margin-top:-10px;
 }
 
 .about2 
 {
-display:none;
+visibility:hidden;
+font-size:0.9em;
+padding:11px 85px 10px 65px;
+border-top:3px solid #666;
+background-color:#DDD;
+color:#000;
+margin-left:-10px;
 }
 
-.about2:hover
+
+.about:hover .about2
 {
-display:visible!important;
+visibility:visible;
+    transition:.2s ease-in;
+
+
 }
 
- .footer 
- {
-text-align:center;
-float:right;
-padding:4px 8px 0px 12px;
-font-size:1em;
-/*
-background-color:#EEE;	
-border-top:2px solid #666;
-*/
-margin-right:0px;
-}
+
 
  .footer p 
  {
