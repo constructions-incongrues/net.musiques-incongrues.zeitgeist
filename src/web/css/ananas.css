@@ -103,7 +103,6 @@ margin-left:80px;
   .descr 
   {
   font-size:1.2em;
-  font-weight:none;
   letter-spacing:1px;
   text-transform:uppercase;
   background-color:#DDD;
@@ -209,7 +208,6 @@ margin-left:80px;
   color:#FFF;
   text-transform:uppercase;
   padding:5px 5px 0px 5px;
-  letter-spacing:px;
   text-align:center;
   box-shadow: 4px 4px 2px #EEE;
   transition:.7s linear;
@@ -321,7 +319,6 @@ text-align:right;
 text-transform:uppercase;
 background-color:#ccc;
 font-size:1.3em;
-letter-spacing:px;
 margin:20px 0px 20px 0px;
 padding:5px 10px 5px 10px;
 }	
