@@ -25,9 +25,9 @@ function slugify($text)
             Zeitgeist #<?php echo $zeitgeist->zeitgeistid ?>
             du <?php echo $dateStartPretty ?> au <?php echo $dateEndPretty ?>
         </h1>
-        <div class="presentation">
+        <p class="presentation">
         <?php echo $sf_data->getRaw('description') ?>
-        </div>
+        </p>
     </div>
 
     <div class="grid_5 releases alpha">
@@ -97,18 +97,19 @@ function slugify($text)
 
 
 <div class="grid_14 footer">
-	<p class="about">
-		
-		À PROPOS
+<<<<<<< Updated upstream
+<p>
+Ce projet est développé par
+=======
+	<p class="about">À PROPOS
 <span class="about2">	
 Ce projet est développé par 
+>>>>>>> Stashed changes
 <a href="http://wwww.constructions-incongrues.net">Constructions Incongrues </a>
-et hébergé par <a href="http://www.pastis-hosting.net">Pastis Hosting</a>. 
-        Le code source du projet est <a href="https://github.com/contructions-incongrues/musique-approximative">distribué</a> sous licence 
+et hébergé par <a href="http://www.pastis-hosting.net">Pastis Hosting</a>.
+        Le code source du projet est <a href="https://github.com/contructions-incongrues/musique-approximative">distribué</a> sous licence
         <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU AGPLv3</a>.
-</span>
-
-</p>
+</span></p>
 </div>
 
 <div class="clear"></div>

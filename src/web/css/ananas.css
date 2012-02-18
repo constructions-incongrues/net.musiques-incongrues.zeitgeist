@@ -286,6 +286,7 @@ padding-bottom:20px;
   border-top:2px solid #666;
   transition: all .0s;
   background-color: #f7f4f4;
+  margin-bottom:10px;
   }	
   
   .presentation:hover 
@@ -447,7 +448,7 @@ float:right;
 display:none;
 }
 
-.about:hover 
+.about2:hover
 {
 display:visible!important;
 }
