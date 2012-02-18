@@ -111,7 +111,7 @@ class zeitgeistActions extends sfActions
 
         // Build feed
         $feed = new Zend_Feed_Writer_Feed();
-        $feed->setTitle('Le Zeigeist du forum des Musiques Incongrues');
+        $feed->setTitle('Le Zeitgeist du forum des Musiques Incongrues');
         $feed->setLink('http://zeitgeist.musiques-incongrues.net');
         $feed->setFeedLink('http://zeitgeist.musiques-incongrues.net/feeds/news', 'rss');
         $feed->setDescription("Chaque semaine, le Zeitgeist Incongru résume l'actualité du forum des Musiques Incongrues : nouvelles productions, mixes et autres pièces. Il propose aussi un agenda des concerts pour la semaine à venir.");
