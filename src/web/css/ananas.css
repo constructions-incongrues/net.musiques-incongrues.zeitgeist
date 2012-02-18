@@ -140,7 +140,7 @@ padding-bottom:20px;
   text-decoration:none;
   text-transform:uppercase;
   background-color:#94d5ff;
-  padding:8px 2px 2px 10px;
+  padding:2px 2px 2px 10px;
   margin:0px 0px 5px -30px;
   transition: all 0.5s; 
   box-shadow: 2px 2px 1px #EEE;
@@ -368,14 +368,14 @@ font-weight:normal;
 text-transform:capitalize;
 padding:5px;
 color:#000;
-border-bottom:1px dotted #ccc;
+border-bottom:1px solid #eee;
 }
 
 .releases dd:hover,.events dd:hover 
 {
 background-color:#FFF;
 color:#000;
-border-bottom:1px dotted #000;
+border-bottom:1px solid #000;
 }
 
 .newmember ul,.compte_rendu ul{list-style-type:square;}
@@ -390,8 +390,9 @@ border-bottom:1px dotted #000;
   
  .newmember {margin-top:10px;}
  .newmember li {list-style-type:square;display:inline;}
- .newmember li a {color:#000;text-transform:uppercase;font-size:1.9em;padding:10px 5px 5px 5px;border-top:3px solid #666;background-color:#EEE;text-decoration:none;font-weight:bold;}
- .newmember li a:hover {color:#eee; background-color:#000;}
+ .newmember li a {color:#000;text-transform:uppercase;font-size:1.9em;padding:10px 5px 5px 5px;background-color:#DDD;text-decoration:none;font-weight:bold;}
+ .newmember li a:hover {color:#FFF; background-color:#000;    transition: all .2s; 
+}
 
 
  /* Pics Of Weeks
@@ -401,13 +402,14 @@ border-bottom:1px dotted #000;
  text-align:center;
 
 
- padding:0px 0px 14px 0px;
+ padding:0px 0px 13px 0px;
  }  
  
  .picsofweek img 
  {
  border:1px solid #000;
    box-shadow: 4px 4px 2px #EEE;
+   margin-bottom:20px!important;
 }
 
 
