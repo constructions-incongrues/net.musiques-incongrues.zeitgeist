@@ -31,6 +31,7 @@ class zeitgeistActions extends sfActions
     {
         // Fetch Zeitgeist
         $zeitgeist = LUM_ZeitgeistTable::getInstance()->findOneByZeitgeistid($request->getParameter('id'));
+        $this->forward404Unless($zeitgeist->ispublished);
 
         // Date handling
         $dateTimeStart = DateTime::createFromFormat('Y-m-d', $zeitgeist->datestart);
