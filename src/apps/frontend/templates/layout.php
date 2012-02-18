@@ -20,7 +20,7 @@
     <script src="<?php echo $sf_request->getRelativeUrlRoot() ?>/js/prefixfree.min.js"></script>
 
     <!-- Alternate links -->
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://zeitgeist.musiques-incongrues.net/feeds/news" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/zeitgeist-incongru" />
 
     <!-- Icons -->
     <link rel="shortcut icon" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/favicon.ico">
@@ -50,6 +50,7 @@
             <ul class="nav">
                 <li><a class="share" target="_blank" href="http://facebook.com/sharer.php?u=http://<?php echo $sf_request->getHost() ?><?php echo $_SERVER['REQUEST_URI']?>">Partager</a></li>
                 <li><a href="mailto:contact@musiques-incongrues.net">Contact</a></li>
+                <li><a href="http://feeds.feedburner.com/zeitgeist-incongru">RSS</a></li>
             </ul>
             <div class="pagination">
                 <h1>Archives</h1>
