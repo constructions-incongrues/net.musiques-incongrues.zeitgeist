@@ -1,6 +1,7 @@
 <?php
 $zeitgeist = $sf_data->getRaw('zeitgeist');
 $events = $sf_data->getRaw('events');
+use_helper('Text');
 
 // TODO : this should go in a helper
 function slugify($text)
@@ -26,7 +27,7 @@ function slugify($text)
             du <?php echo $dateStartPretty ?> au <?php echo $dateEndPretty ?>
         </h1>
         <div class="presentation">
-        <?php echo $sf_data->getRaw('description') ?>
+        <?php echo auto_link_text($sf_data->getRaw('description')) ?>
         </div>
     </div>
 
@@ -76,7 +77,7 @@ function slugify($text)
 
     <div class="grid_6 compte_rendu alpha">
         <h2><a href="http://github.com/constructions-incongrues/">Ananas Ex Machina !</a></h2>
-        <p><?php echo $sf_data->getRaw('ananasExMachina') ?></p>
+        <p><?php echo auto_link_text($sf_data->getRaw('ananasExMachina')) ?></p>
     </div><!-- end of grid_6 compte_rendu -->
 
     <div class="grid_5 picsofweek omega">
@@ -98,7 +99,7 @@ function slugify($text)
 
 <div class="grid_14 footer">
     <p class="about">
-        <span class="apropos">À PROPOS</span>
+        À PROPOS
         <span class="about2">
             Ce projet est développé par
             <a href="http://wwww.constructions-incongrues.net">Constructions Incongrues</a>
