@@ -147,24 +147,30 @@ class zeitgeistActions extends sfActions
             $entry->setLink('http://zeitgeist.musiques-incongrues.net/'.$zeitgeist->zeitgeistid);
             $entry->setDateModified(time());
             $entry->setDateCreated(time());
-            $entry->setDescription(
-                sprintf(
-                    "\n".'Cette semaine : %d mixes, %d sorties, %d nouveaux venus et %d évènements à venir !',
-                    count($zeitgeist->getMixes()),
-                    count($zeitgeist->getReleases()),
-                    count($zeitgeist->getUsers()),
-                    count($zeitgeist->getUpcomingEvents())
-                )
+            $defaultDescription = sprintf(
+                "\n".'Cette semaine : %d mixes, %d sorties, %d nouveaux venus et %d évènements à venir !',
+                count($zeitgeist->getMixes()),
+                count($zeitgeist->getReleases()),
+                count($zeitgeist->getUsers()),
+                count($zeitgeist->getUpcomingEvents())
             );
+
+            $entry->setDescription($defaultDescription);
 
             // Build entry content
             $content = array();
 
             // Apply markdown transformation to texts
             require_once(sfConfig::get('sf_lib_dir').'/vendor/markdown-php/markdown.php');
-            $ananasExMachina = Markdown(utf8_encode($zeitgeist->ananasexmachina));
-            $description = Markdown(utf8_encode($zeitgeist->description));
+            if ($zeitgeist->description) {
+                $description = Markdown(utf8_encode($zeitgeist->description));
+            } else {
+                $description = $defaultDescription;
+            }
             $content[] = $description;
+            if ($zeitgeist->image) {
+                $content[] = sprintf('<img src="%s" />', $zeitgeist->image);
+            }
             $entry->setContent(implode("\n", $content));
 
             // Add entry to feed
