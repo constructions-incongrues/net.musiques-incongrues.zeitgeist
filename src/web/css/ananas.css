@@ -23,7 +23,7 @@
   .wf-metrophobic-n4-active body {font-family:'Metrophobic', arial, serif;}
   .wf-metrophobic-n4-inactive body {font-family:arial, serif;}
   .wf-cuprum-n4-active h1,.wf-cuprum-n4-active .newmember li a,	.wf-cuprum-n4-active h2,.wf-cuprum-n4-active h3, .wf-cuprum-n4-active {font-family:'Cuprum', arial, serif;}
-  .wf-cuprum-n4-inactive h1, .wf-cuprum-n4-inactive li a,.wf-cuprum-n4-inactive h2,.wf-cuprum-n4-inactive h3, .wf-cuprum-n4-inactive {font-family:arial, serif;}
+  .wf-cuprum-n4-inactive h1,.wf-cuprum-n4-inactive .about, .wf-cuprum-n4-inactive li a,.wf-cuprum-n4-inactive h2,.wf-cuprum-n4-inactive h3, .wf-cuprum-n4-inactive {font-family:arial, serif;}
   .wf-megrim-n4-active .zeit,.wf-megrim-n4-active .geist {font-family:'Megrim', arial, serif;}
   .wf-megrim-n4-inactive h1.zeit,.wf-megrim-n4-inactive h1.geist  {font-family:arial, serif;}		
 
@@ -431,14 +431,37 @@ border-bottom:1px dotted #000;
 /* 
  * FOOTER
  ****************/
+p.about 
+{
+background-color:#000!important;
+text-transform:uppercase;
+color:#FFF;
+
+font-size:1em;
+padding:5px;
+float:right;
+}
+
+.about2 
+{
+display:none;
+}
+
+.about:hover 
+{
+display:visible!important;
+}
+
  .footer 
  {
 text-align:center;
 float:right;
 padding:4px 8px 0px 12px;
 font-size:1em;
+/*
 background-color:#EEE;	
 border-top:2px solid #666;
+*/
 margin-right:0px;
 }
 
