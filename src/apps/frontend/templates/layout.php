@@ -60,13 +60,9 @@
                     <li><a href="/issues/1" title="Période du 6/05/2011 au 12/05/2011">▲ 2</a></li>
                 </ul>
                 -->
-<?php if ($sf_request->getParameter('id') > 1): ?>
-                <h2 class="moreepisode previous"><a href="<?php echo url_for('@zeitgeist_show?id='.($sf_request->getParameter('id') - 1)) ?>">Previous</a></h2>
-<?php endif; ?>
-                <h2 class="moreepisode next"><a href="<?php echo url_for('@zeitgeist_show?id='.($sf_request->getParameter('id') + 1)) ?>">Next</a> </h2>
+<?php include_slot('navigation'); ?>
             </div><!-- end of.pagination -->
         </div><!-- end of grid_3 -->
-
 <?php echo $sf_content ?>
 
     </div><!-- end of container_14 -->

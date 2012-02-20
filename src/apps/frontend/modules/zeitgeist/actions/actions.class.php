@@ -96,6 +96,7 @@ class zeitgeistActions extends sfActions
         $this->dateEndPretty = $dateendPretty;
         $this->ananasExMachina = $ananasExMachina;
         $this->description = $description;
+        $this->lastZeitgeistId = LUM_ZeitgeistTable::getInstance()->getLatestIssue()->zeitgeistid;
 
         // Select template
         return sfView::SUCCESS;
