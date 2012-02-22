@@ -95,14 +95,19 @@ function slugify($text)
     </div><!-- end of grid_5picsofweek -->
 
 
-     <div class="grid_11 newmember alpha omega">
+     <div class="grid_6 newmember alpha">
         <h2><a href=""><?php echo count($zeitgeist->getUsers()) ?> Nouveaux Venus</a></h2>
         <ul>
 <?php foreach($zeitgeist->getUsers() as $user): ?>
             <li><a href="http://www.musiques-incongrues.net/forum/account/<?php echo $user['userid'] ?>"><?php echo $user['name'] ?></a></li>
 <?php endforeach; ?>
         </ul>
-    </div><!-- end of grid_1 newmember -->
+    </div><!-- end of grid_6 newmember -->
+
+    <div class="grid_5 newmember omega">
+        <h2><a href="">Liens</a></h2>
+        <p><a href="<?php echo $urlAll ?>">Consultez l'intégralité des <?php echo $urlCount ?> liens postés au cours de la période.</a></p>
+    </div>
 </div>
 
 <div class="clear"></div>

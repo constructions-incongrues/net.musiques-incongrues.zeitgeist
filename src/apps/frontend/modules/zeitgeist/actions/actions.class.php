@@ -61,6 +61,16 @@ class zeitgeistActions extends sfActions
             $events[$timestamp][] = $event;
         }
 
+        // Fetch links from data.musiques-incongrues.net
+        $urlImages = sprintf('http://data.musiques-incongrues.net/collections/links/segments/images/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d'));
+        $urlYoutube = sprintf('http://data.musiques-incongrues.net/collections/links/segments/youtube/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d'));
+        $urlVimeo = sprintf('http://data.musiques-incongrues.net/collections/links/segments/all/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]&domain_parent=vimeo.com', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d'));
+        $urlAll = sprintf('http://data.musiques-incongrues.net/collections/links/segments/all/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d'));
+        $curl = curl_init($urlAll.'&format=json');
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $response = json_decode(curl_exec($curl), true);
+        $urlCount = $response['num_found'];
+
         // Metadata
         $title = sprintf('Zeitgeist Incongru #%d : du %s au %s', $zeitgeist->zeitgeistid, $datestartPretty, $dateendPretty);
         $description = "Chaque semaine, le Zeitgeist Incongru résume l'actualité du forum des Musiques Incongrues : nouvelles productions, mixes et autres pièces. Il propose aussi un agenda des concerts pour la semaine à venir.";
@@ -70,14 +80,14 @@ class zeitgeistActions extends sfActions
             count($zeitgeist->getReleases()),
             count($zeitgeist->getUsers()),
             count($zeitgeist->getUpcomingEvents())
-        );
+            );
         $ogp = array(
             'title' => $title,
             'description' => $description,
             'image' => $zeitgeist->image,
             'url' => 'http://zeitgeist.musiques-incongrues.net/'.$zeitgeist->zeitgeistid,
             'type' => 'article'
-        );
+            );
         $this->getResponse()->addMeta('title', $title);
         $this->getResponse()->addMeta('description', $description);
         foreach ($ogp as $name => $content) {
@@ -97,6 +107,8 @@ class zeitgeistActions extends sfActions
         $this->ananasExMachina = $ananasExMachina;
         $this->description = $description;
         $this->lastZeitgeistId = LUM_ZeitgeistTable::getInstance()->getLatestIssue()->zeitgeistid;
+        $this->urlAll = $urlAll;
+        $this->urlCount = $urlCount;
 
         // Select template
         return sfView::SUCCESS;
@@ -123,8 +135,8 @@ class zeitgeistActions extends sfActions
                 'name'  => 'Musiques Incongrues',
                 'email' => 'contact@musiques-incongrues.net',
                 'uri'   => 'http://www.musiques-incongrues.net',
-            )
-        );
+                )
+            );
         $feed->setDateModified(DateTime::createFromFormat('Y-m-d', $zeitgeistLatest->datestart)->getTimestamp());
 
         foreach ($zeitgeists as $zeitgeist) {
@@ -155,7 +167,7 @@ class zeitgeistActions extends sfActions
                 count($zeitgeist->getReleases()),
                 count($zeitgeist->getUsers()),
                 count($zeitgeist->getUpcomingEvents())
-            );
+                );
 
             $entry->setDescription($defaultDescription);
 
