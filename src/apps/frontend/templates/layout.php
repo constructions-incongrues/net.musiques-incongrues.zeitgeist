@@ -20,7 +20,7 @@
     <script src="<?php echo $sf_request->getRelativeUrlRoot() ?>/js/prefixfree.min.js"></script>
 
     <!-- Alternate links -->
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://zeitgeist.musiques-incongrues.net/feeds/news" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/zeitgeist-incongru" />
 
     <!-- Icons -->
     <link rel="shortcut icon" href="<?php echo $sf_request->getRelativeUrlRoot() ?>/favicon.ico">
@@ -50,6 +50,7 @@
             <ul class="nav">
                 <li><a class="share" target="_blank" href="http://facebook.com/sharer.php?u=http://<?php echo $sf_request->getHost() ?><?php echo $_SERVER['REQUEST_URI']?>">Partager</a></li>
                 <li><a href="mailto:contact@musiques-incongrues.net">Contact</a></li>
+                <li><a href="http://feeds.feedburner.com/zeitgeist-incongru">RSS</a></li>
             </ul>
             <div class="pagination">
                 <h1>Archives</h1>
@@ -59,13 +60,9 @@
                     <li><a href="/issues/1" title="Période du 6/05/2011 au 12/05/2011">▲ 2</a></li>
                 </ul>
                 -->
-<?php if ($sf_request->getParameter('id') > 1): ?>
-                <h2 class="moreepisode previous"><a href="<?php echo url_for('@zeitgeist_show?id='.($sf_request->getParameter('id') - 1)) ?>">Previous</a></h2>
-<?php endif; ?>
-                <h2 class="moreepisode next"><a href="<?php echo url_for('@zeitgeist_show?id='.($sf_request->getParameter('id') + 1)) ?>">Next</a> </h2>
+<?php include_slot('navigation'); ?>
             </div><!-- end of.pagination -->
         </div><!-- end of grid_3 -->
-
 <?php echo $sf_content ?>
 
     </div><!-- end of container_14 -->

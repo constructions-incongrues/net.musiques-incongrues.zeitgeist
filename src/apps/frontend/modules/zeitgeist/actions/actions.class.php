@@ -31,6 +31,7 @@ class zeitgeistActions extends sfActions
     {
         // Fetch Zeitgeist
         $zeitgeist = LUM_ZeitgeistTable::getInstance()->findOneByZeitgeistid($request->getParameter('id'));
+        $this->forward404Unless($zeitgeist->ispublished || $this->getRequestParameter('preview') !== null);
 
         // Date handling
         $dateTimeStart = DateTime::createFromFormat('Y-m-d', $zeitgeist->datestart);
@@ -95,6 +96,7 @@ class zeitgeistActions extends sfActions
         $this->dateEndPretty = $dateendPretty;
         $this->ananasExMachina = $ananasExMachina;
         $this->description = $description;
+        $this->lastZeitgeistId = LUM_ZeitgeistTable::getInstance()->getLatestIssue()->zeitgeistid;
 
         // Select template
         return sfView::SUCCESS;
@@ -104,6 +106,7 @@ class zeitgeistActions extends sfActions
     {
         // Fetch zeitgeists
         $zeitgeists = LUM_ZeitgeistTable::getInstance()->getLastIssues();
+        $zeitgeistLatest = $zeitgeists[0];
 
         // Setup zend autoloading
         require_once(sfConfig::get('sf_lib_dir').'/vendor/zend/library/Zend/Loader/Autoloader.php');
@@ -111,7 +114,7 @@ class zeitgeistActions extends sfActions
 
         // Build feed
         $feed = new Zend_Feed_Writer_Feed();
-        $feed->setTitle('Le Zeigeist du forum des Musiques Incongrues');
+        $feed->setTitle('Le Zeitgeist du forum des Musiques Incongrues');
         $feed->setLink('http://zeitgeist.musiques-incongrues.net');
         $feed->setFeedLink('http://zeitgeist.musiques-incongrues.net/feeds/news', 'rss');
         $feed->setDescription("Chaque semaine, le Zeitgeist Incongru résume l'actualité du forum des Musiques Incongrues : nouvelles productions, mixes et autres pièces. Il propose aussi un agenda des concerts pour la semaine à venir.");
@@ -122,7 +125,7 @@ class zeitgeistActions extends sfActions
                 'uri'   => 'http://www.musiques-incongrues.net',
             )
         );
-        $feed->setDateModified(time());
+        $feed->setDateModified(DateTime::createFromFormat('Y-m-d', $zeitgeistLatest->datestart)->getTimestamp());
 
         foreach ($zeitgeists as $zeitgeist) {
             // Date handling
@@ -144,26 +147,32 @@ class zeitgeistActions extends sfActions
             $entry = $feed->createEntry();
             $entry->setTitle(sprintf('Zeitgeist Incongru #%d : du %s au %s', $zeitgeist->zeitgeistid, $datestartPretty, $dateendPretty));
             $entry->setLink('http://zeitgeist.musiques-incongrues.net/'.$zeitgeist->zeitgeistid);
-            $entry->setDateModified(time());
-            $entry->setDateCreated(time());
-            $entry->setDescription(
-                sprintf(
-                    "\n".'Cette semaine : %d mixes, %d sorties, %d nouveaux venus et %d évènements à venir !',
-                    count($zeitgeist->getMixes()),
-                    count($zeitgeist->getReleases()),
-                    count($zeitgeist->getUsers()),
-                    count($zeitgeist->getUpcomingEvents())
-                )
+            $entry->setDateModified($dateTimeStart->getTimestamp());
+            $entry->setDateCreated($dateTimeEnd->getTimestamp());
+            $defaultDescription = sprintf(
+                "\n".'Cette semaine : %d mixes, %d sorties, %d nouveaux venus et %d évènements à venir !',
+                count($zeitgeist->getMixes()),
+                count($zeitgeist->getReleases()),
+                count($zeitgeist->getUsers()),
+                count($zeitgeist->getUpcomingEvents())
             );
+
+            $entry->setDescription($defaultDescription);
 
             // Build entry content
             $content = array();
 
             // Apply markdown transformation to texts
             require_once(sfConfig::get('sf_lib_dir').'/vendor/markdown-php/markdown.php');
-            $ananasExMachina = Markdown(utf8_encode($zeitgeist->ananasexmachina));
-            $description = Markdown(utf8_encode($zeitgeist->description));
+            if ($zeitgeist->description) {
+                $description = Markdown(utf8_encode($zeitgeist->description));
+            } else {
+                $description = $defaultDescription;
+            }
             $content[] = $description;
+            if ($zeitgeist->image) {
+                $content[] = sprintf('<img src="%s" />', $zeitgeist->image);
+            }
             $entry->setContent(implode("\n", $content));
 
             // Add entry to feed

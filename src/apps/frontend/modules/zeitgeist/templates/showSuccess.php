@@ -20,6 +20,15 @@ function slugify($text)
 }
 ?>
 
+<?php slot('navigation'); ?>
+    <?php if ($zeitgeist->zeitgeistid > 1): ?>
+                <h2 class="moreepisode previous"><a href="<?php echo url_for('@zeitgeist_show?id='.($sf_request->getParameter('id') - 1)) ?>">Previous</a></h2>
+    <?php endif; ?>
+    <?php if ($zeitgeist->zeitgeistid != $lastZeitgeistId): ?>
+                <h2 class="moreepisode next"><a href="<?php echo url_for('@zeitgeist_show?id='.($sf_request->getParameter('id') + 1)) ?>">Next</a></h2>
+    <?php endif; ?>
+<?php end_slot(); ?>
+
 <div class="grid_11 content">
     <div class="grid_11 numero alpha omega">
         <h1 class="last">
