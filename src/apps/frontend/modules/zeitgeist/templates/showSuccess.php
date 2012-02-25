@@ -108,10 +108,10 @@ function slugify($text)
 <div class="grid_5 data omega">
 <h2><a href="http://data.musiques-incongrues.net">Data</h2>
 <ul>
-    <li><a target="_blank" href="<?php echo $data['all']['url'] ?> "><?php echo $data['all']['count'] ?> nouveaux liens</a></li>
-    <li><a target="_blank" href="<?php echo $data['images']['url'] ?> "><?php echo $data['images']['count'] ?> nouvelles images</a></li>
-    <li><a target="_blank" href="<?php echo $data['youtube']['url'] ?> "><?php echo $data['youtube']['count'] ?> nouvelles vidéos (youtube)</a></li>
-    <li><a target="_blank" href="<?php echo $data['vimeo']['url'] ?> "><?php echo $data['vimeo']['count'] ?> nouvelles vidéos (vimeo)</a></li>
+    <li><a target="_blank" href="<?php echo $data['all']['url'] ?>&viewmode=gallery"><?php echo $data['all']['count'] ?> nouveaux liens</a></li>
+    <li><a target="_blank" href="<?php echo $data['images']['url'] ?>&viewmode=gallery"><?php echo $data['images']['count'] ?> nouvelles images</a></li>
+    <li><a target="_blank" href="<?php echo $data['youtube']['url'] ?>&viewmode=gallery"><?php echo $data['youtube']['count'] ?> nouvelles vidéos (youtube)</a></li>
+    <li><a target="_blank" href="<?php echo $data['vimeo']['url'] ?>&viewmode=gallery"><?php echo $data['vimeo']['count'] ?> nouvelles vidéos (vimeo)</a></li>
 </ul>    
 </div><!-- end of grid_5 data -->
 
@@ -124,11 +124,11 @@ function slugify($text)
     <p class="about">
         <span class="apropos">À PROPOS</span>
         <span class="about2">
-            Ce projet est développé par
-            <a href="http://wwww.constructions-incongrues.net">Constructions Incongrues</a>
-            et hébergé par <a href="http://www.pastis-hosting.net">Pastis Hosting</a>.
-            Le code source du projet est <a href="https://github.com/contructions-incongrues/zeitgeist.musiques-incongrues.net">distribué</a> sous licence
-            <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU AGPLv3</a>.
+            code <a href="http://wwww.constructions-incongrues.net">Constructions Incongrues</a>
+            hébergement <a href="http://www.pastis-hosting.net">Pastis Hosting</a>
+            design <a href="http://johan.wip.incongru.org">Johan</a>
+            le code source est <a href="https://github.com/contructions-incongrues/zeitgeist.musiques-incongrues.net">distribué</a> sous licence
+            <a href="http://www.gnu.org/licenses/agpl-3.0.html">GNU AGPLv3</a>
         </span>
     </p>
 </div>
