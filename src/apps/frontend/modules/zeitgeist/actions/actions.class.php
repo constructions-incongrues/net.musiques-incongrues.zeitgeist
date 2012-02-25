@@ -62,14 +62,31 @@ class zeitgeistActions extends sfActions
         }
 
         // Fetch links from data.musiques-incongrues.net
-        $urlImages = sprintf('http://data.musiques-incongrues.net/collections/links/segments/images/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d'));
-        $urlYoutube = sprintf('http://data.musiques-incongrues.net/collections/links/segments/youtube/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d'));
-        $urlVimeo = sprintf('http://data.musiques-incongrues.net/collections/links/segments/all/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]&domain_parent=vimeo.com', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d'));
-        $urlAll = sprintf('http://data.musiques-incongrues.net/collections/links/segments/all/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d'));
-        $curl = curl_init($urlAll.'&format=json');
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $response = json_decode(curl_exec($curl), true);
-        $urlCount = $response['num_found'];
+        $data = array(
+            'all' => array(
+                'url' => sprintf('http://data.musiques-incongrues.net/collections/links/segments/all/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d')),
+                'count' => 0,
+            ),
+            'images' => array(
+                'url' => sprintf('http://data.musiques-incongrues.net/collections/links/segments/images/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d')),
+                'count' => 0,
+            ),
+            'youtube' => array(
+                'url' => sprintf('http://data.musiques-incongrues.net/collections/links/segments/youtube/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d')),
+                'count' => 0,
+            ),
+            'vimeo' => array(
+                'url' => sprintf('http://data.musiques-incongrues.net/collections/links/segments/all/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]&domain_parent=vimeo.com', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d')),
+                'count' => 0,
+            ),
+        );
+
+        foreach ($data as $segment => $spec) {
+            $curl = curl_init($spec['url'].'&format=json');
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            $response = json_decode(curl_exec($curl), true);
+            $data[$segment]['count'] = (int)$response['num_found'];            
+        }
 
         // Metadata
         $title = sprintf('Zeitgeist Incongru #%d : du %s au %s', $zeitgeist->zeitgeistid, $datestartPretty, $dateendPretty);
@@ -107,8 +124,7 @@ class zeitgeistActions extends sfActions
         $this->ananasExMachina = $ananasExMachina;
         $this->description = $description;
         $this->lastZeitgeistId = LUM_ZeitgeistTable::getInstance()->getLatestIssue()->zeitgeistid;
-        $this->urlAll = $urlAll;
-        $this->urlCount = $urlCount;
+        $this->data = $data;
 
         // Select template
         return sfView::SUCCESS;

@@ -322,8 +322,8 @@ padding-bottom:20px;
 /*
  *  listings */ 
  
-  .releases, .events,.picsofweek,.compte_rendu {width:350px!important;} 
-  .releases a, .events a  {color:#000;font-size:1.16em;text-decoration:none;}
+  .releases, .events,.picsofweek,.compte_rendu, .data, .newmember {width:350px!important;} 
+  .releases a, .events a, .data a {color:#000;font-size:1.16em;text-decoration:none;}
   .releases .ville a, .releases .audio a,.events.ville a, .events .audio a {color:#0099FF;}
   .releases .image a,.releases .audio a, .releases .download a,.events .image a,.events .audio a, .events .download a {color:#0099FF;font-size:1.5em;}
   .releases .image a:hover,.events .image a:hover {color:#0099FF;}
@@ -332,7 +332,7 @@ padding-bottom:20px;
 .events .ville a
 {
 text-transform:capitalize;
-color:#666;}
+color:#;}
 .releases, .compte_rendu, .events,.picsofweek
 {
     transition:.7s ease-in;
@@ -368,15 +368,28 @@ padding:5px 10px 5px 10px;
 font-weight:normal;
 }	
 
-.releases dd,.events dd
+.releases dd,.events dd,.data li
 {
 text-transform:lowercase;
 padding:5px;
 color:#000;
 border-bottom:1px solid #CCC;
 font-size:1em;
+list-style-type:none;
 }
 
+.data li 
+{
+  margin-left:0px;
+  text-transform:capitalize;
+
+}
+
+.data li:hover
+{
+background-color:#eee;
+border-bottom:1px solid #000;
+}
 .releases dd:first-letter, .events dd:first-letter
 {
 text-transform:capitalize;
@@ -390,6 +403,7 @@ border-bottom:1px solid #666;
 
 .newmember ul,.compte_rendu ul{list-style-type:square;}
 
+
  /* Compte Rendu
   **************/
  
@@ -398,7 +412,6 @@ border-bottom:1px solid #666;
  /* New Member
   ***************/
   
- .newmember {margin-top:10px;}
  .newmember li {list-style-type:square;display:inline;}
  .newmember li a {color:#000;text-transform:uppercase;font-size:1.5em;padding:10px 5px 5px 5px;background-color:#DDD;text-decoration:none;font-weight:bold;}
  .newmember li a:hover {color:#FFF; background-color:#000;    transition: all .2s; 

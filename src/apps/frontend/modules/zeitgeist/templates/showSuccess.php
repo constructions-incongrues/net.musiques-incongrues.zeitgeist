@@ -21,12 +21,12 @@ function slugify($text)
 ?>
 
 <?php slot('navigation'); ?>
-    <?php if ($zeitgeist->zeitgeistid > 1): ?>
-                <h2 class="moreepisode previous"><a href="<?php echo url_for('@zeitgeist_show?id='.($sf_request->getParameter('id') - 1)) ?>">Previous</a></h2>
-    <?php endif; ?>
-    <?php if ($zeitgeist->zeitgeistid != $lastZeitgeistId): ?>
-                <h2 class="moreepisode next"><a href="<?php echo url_for('@zeitgeist_show?id='.($sf_request->getParameter('id') + 1)) ?>">Next</a></h2>
-    <?php endif; ?>
+<?php if ($zeitgeist->zeitgeistid > 1): ?>
+    <h2 class="moreepisode previous"><a href="<?php echo url_for('@zeitgeist_show?id='.($sf_request->getParameter('id') - 1)) ?>">Previous</a></h2>
+<?php endif; ?>
+<?php if ($zeitgeist->zeitgeistid != $lastZeitgeistId): ?>
+    <h2 class="moreepisode next"><a href="<?php echo url_for('@zeitgeist_show?id='.($sf_request->getParameter('id') + 1)) ?>">Next</a></h2>
+<?php endif; ?>
 <?php end_slot(); ?>
 
 <div class="grid_11 content">
@@ -36,7 +36,7 @@ function slugify($text)
             du <?php echo $dateStartPretty ?> au <?php echo $dateEndPretty ?>
         </h1>
         <div class="presentation">
-        <?php echo auto_link_text($sf_data->getRaw('description')) ?>
+            <?php echo auto_link_text($sf_data->getRaw('description')) ?>
         </div>
     </div>
 
@@ -44,71 +44,78 @@ function slugify($text)
         <h2><a href="http://www.musiques-incongrues.net/forum/releases/" title="Consulter la liste de toutes les sorties musicales disponibles sur le forum des Musiques Incongrues">Du nouveau pour les oreilles</a></h2>
         <dl>
             <dt><?php echo count($zeitgeist->getMixes()) ?> Mixes</dt>
-<?php foreach($zeitgeist->getMixes() as $mix): ?>
+            <?php foreach($zeitgeist->getMixes() as $mix): ?>
             <dd>
                 <a href="http://www.musiques-incongrues.net/forum/discussion/<?php echo $mix['discussionid'] ?>/<?php echo slugify($mix['name'])?>" title="Consulter la discussion sur le forum des Musiques Incongrues"><?php echo $mix['name'] ?></a>
-    <?php if ($mix['LUM_Releases']['downloadlink'] ): ?>
+                <?php if ($mix['LUM_Releases']['downloadlink'] ): ?>
                 <span class="download"><a href="<?php echo $mix['LUM_Releases']['downloadlink'] ?>" title="Télécharger le mix">⚡</a></span>
-    <?php endif; ?>
-            </dd>
-<?php endforeach; ?>
-
-            <dt><?php echo count($zeitgeist->getReleases()) ?> Sorties</dt>
-<?php foreach($zeitgeist->getReleases() as $release): ?>
-            <dd>
-                <a href="http://www.musiques-incongrues.net/forum/discussion/<?php echo $release['discussionid'] ?>/<?php echo slugify($release['name'] ) ?>" title="Consultez la discussion sur le forum des Musiques Incongrues"><?php echo $release['name'] ?></a>
-    <?php if ($release['LUM_Releases']['downloadlink'] ): ?>
-                <span class="download"><a href="<?php echo $release['LUM_Releases']['downloadlink'] ?>" title="Télécharger le mix">⚡</a></span>
-    <?php endif; ?>
-            </dd>
-<?php endforeach; ?>
-        </dl>
-
-    </div><!-- end of grid_5-->
-
-    <div class="grid_6 events omega">
-        <h2><a href="http://www.musiques-incongrues.net/forum/events/" title="Consultez l'agenda du forum des Musiques Incongrues">LA SEMAINE PROCHAINE, ON SORT !</a></h2>
-<?php foreach (array_keys($events) as $timestamp): ?>
-        <dl>
-            <dt><?php echo strftime('%A %e', $timestamp) ?></dt>
-    <?php foreach ($events[$timestamp] as $event): ?>
-            <dd>
-                <span class="ville">
-                    <a href="http://www.musiques-incongrues.net/forum/events/<?php echo strtolower($event['LUM_Event']['city']) ?>"><?php echo $event['LUM_Event']['city'] ?></a>
-                </span>	- <a href="http://www.musiques-incongrues.net/forum/discussion/<?php echo $event['discussionid'] ?>/<?php echo slugify($event['name']) ?>"> <?php echo $event['name'] ?></a>
-            </dd>
+            <?php endif; ?>
+        </dd>
     <?php endforeach; ?>
-        </dl>
+
+    <dt><?php echo count($zeitgeist->getReleases()) ?> Sorties</dt>
+    <?php foreach($zeitgeist->getReleases() as $release): ?>
+    <dd>
+        <a href="http://www.musiques-incongrues.net/forum/discussion/<?php echo $release['discussionid'] ?>/<?php echo slugify($release['name'] ) ?>" title="Consultez la discussion sur le forum des Musiques Incongrues"><?php echo $release['name'] ?></a>
+        <?php if ($release['LUM_Releases']['downloadlink'] ): ?>
+        <span class="download"><a href="<?php echo $release['LUM_Releases']['downloadlink'] ?>" title="Télécharger le mix">⚡</a></span>
+    <?php endif; ?>
+</dd>
 <?php endforeach; ?>
-    </div><!-- end of grid_6events-->
+</dl>
 
-    <div class="clear"></div>
+</div><!-- end of grid_5-->
 
-    <div class="grid_6 compte_rendu alpha">
-        <h2><a href="http://github.com/constructions-incongrues/">Ananas Ex Machina !</a></h2>
-        <p><?php echo auto_link_text($sf_data->getRaw('ananasExMachina')) ?></p>
-    </div><!-- end of grid_6 compte_rendu -->
-
-    <div class="grid_5 picsofweek omega">
-        <h2><a href="http://incongrunacotheque.tumblr.com">L'image de la semaine</a></h2>
-        <img src="<?php echo $zeitgeist->image ?>" width="300px" />
-    </div><!-- end of grid_5picsofweek -->
-
-
-     <div class="grid_6 newmember alpha">
-        <h2><a href=""><?php echo count($zeitgeist->getUsers()) ?> Nouveaux Venus</a></h2>
-        <ul>
-<?php foreach($zeitgeist->getUsers() as $user): ?>
-            <li><a href="http://www.musiques-incongrues.net/forum/account/<?php echo $user['userid'] ?>"><?php echo $user['name'] ?></a></li>
+<div class="grid_6 events omega">
+    <h2><a href="http://www.musiques-incongrues.net/forum/events/" title="Consultez l'agenda du forum des Musiques Incongrues">LA SEMAINE PROCHAINE, ON SORT !</a></h2>
+    <?php foreach (array_keys($events) as $timestamp): ?>
+    <dl>
+        <dt><?php echo strftime('%A %e', $timestamp) ?></dt>
+        <?php foreach ($events[$timestamp] as $event): ?>
+        <dd>
+            <span class="ville">
+                <a href="http://www.musiques-incongrues.net/forum/events/<?php echo strtolower($event['LUM_Event']['city']) ?>"><?php echo $event['LUM_Event']['city'] ?></a>
+            </span>	- <a href="http://www.musiques-incongrues.net/forum/discussion/<?php echo $event['discussionid'] ?>/<?php echo slugify($event['name']) ?>"> <?php echo $event['name'] ?></a>
+        </dd>
+    <?php endforeach; ?>
+</dl>
 <?php endforeach; ?>
-        </ul>
-    </div><!-- end of grid_6 newmember -->
+</div><!-- end of grid_6events-->
 
-    <div class="grid_5 newmember omega">
-        <h2><a href="">Liens</a></h2>
-        <p><a href="<?php echo $urlAll ?>">Consultez l'intégralité des <?php echo $urlCount ?> liens postés au cours de la période.</a></p>
-    </div>
-</div>
+<div class="clear"></div>
+
+<div class="grid_6 compte_rendu alpha">
+    <h2><a href="http://github.com/constructions-incongrues/">Ananas Ex Machina !</a></h2>
+    <p><?php echo auto_link_text($sf_data->getRaw('ananasExMachina')) ?></p>
+</div><!-- end of grid_6 compte_rendu -->
+
+<div class="grid_5 picsofweek omega">
+    <h2><a href="http://incongrunacotheque.tumblr.com">L'image de la semaine</a></h2>
+    <img src="<?php echo $zeitgeist->image ?>" width="300px" />
+</div><!-- end of grid_5picsofweek -->
+
+<div class="clear"></div>
+
+<div class="grid_6 newmember alpha">
+    <h2><a href=""><?php echo count($zeitgeist->getUsers()) ?> Nouveaux Venus</a></h2>
+    <ul>
+        <?php foreach($zeitgeist->getUsers() as $user): ?>
+        <li><a href="http://www.musiques-incongrues.net/forum/account/<?php echo $user['userid'] ?>"><?php echo $user['name'] ?></a></li>
+    <?php endforeach; ?>
+</ul>
+</div><!-- end of grid_6 newmember -->
+
+<div class="grid_5 data omega">
+<h2><a href="http://data.musiques-incongrues.net">Data</h2>
+<ul>
+    <li><a target="_blank" href="<?php echo $data['all']['url'] ?> "><?php echo $data['all']['count'] ?> nouveaux liens</a></li>
+    <li><a target="_blank" href="<?php echo $data['images']['url'] ?> "><?php echo $data['images']['count'] ?> nouvelles images</a></li>
+    <li><a target="_blank" href="<?php echo $data['youtube']['url'] ?> "><?php echo $data['youtube']['count'] ?> nouvelles vidéos (youtube)</a></li>
+    <li><a target="_blank" href="<?php echo $data['vimeo']['url'] ?> "><?php echo $data['vimeo']['count'] ?> nouvelles vidéos (vimeo)</a></li>
+</ul>    
+</div><!-- end of grid_5 data -->
+
+</div><!-- end of grid_11 -->
 
 <div class="clear"></div>
 
