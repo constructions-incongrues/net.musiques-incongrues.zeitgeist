@@ -110,8 +110,7 @@ function slugify($text)
 <ul>
     <li><a target="_blank" href="<?php echo $data['all']['url'] ?>&viewmode=gallery"><?php echo $data['all']['count'] ?> nouveaux liens</a></li>
     <li><a target="_blank" href="<?php echo $data['images']['url'] ?>&viewmode=gallery"><?php echo $data['images']['count'] ?> nouvelles images</a></li>
-    <li><a target="_blank" href="<?php echo $data['youtube']['url'] ?>&viewmode=gallery"><?php echo $data['youtube']['count'] ?> nouvelles vidéos (youtube)</a></li>
-    <li><a target="_blank" href="<?php echo $data['vimeo']['url'] ?>&viewmode=gallery"><?php echo $data['vimeo']['count'] ?> nouvelles vidéos (vimeo)</a></li>
+    <li><a target="_blank" href="<?php echo $data['videos']['url'] ?>&viewmode=gallery"><?php echo $data['videos']['count'] ?> nouvelles vidéos</a></li>
 </ul>    
 </div><!-- end of grid_5 data -->
 

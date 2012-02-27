@@ -71,12 +71,8 @@ class zeitgeistActions extends sfActions
                 'url' => sprintf('http://data.musiques-incongrues.net/collections/links/segments/images/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d')),
                 'count' => 0,
             ),
-            'youtube' => array(
-                'url' => sprintf('http://data.musiques-incongrues.net/collections/links/segments/youtube/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d')),
-                'count' => 0,
-            ),
-            'vimeo' => array(
-                'url' => sprintf('http://data.musiques-incongrues.net/collections/links/segments/all/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]&domain_parent=vimeo.com', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d')),
+            'videos' => array(
+                'url' => sprintf('http://data.musiques-incongrues.net/collections/links/segments/all/get?contributed_at=[%sT00:00:00Z%%20TO%%20%sT00:00:00Z]&domain_parent=vimeo.com%%20OR%%20youtube.com', $dateTimeStart->format('Y-m-d'), $dateTimeEnd->format('Y-m-d')),
                 'count' => 0,
             ),
         );
