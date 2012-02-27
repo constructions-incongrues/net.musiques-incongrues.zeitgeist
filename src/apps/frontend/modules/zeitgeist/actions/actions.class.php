@@ -149,7 +149,7 @@ class zeitgeistActions extends sfActions
                 'uri'   => 'http://www.musiques-incongrues.net',
                 )
             );
-        $feed->setDateModified(DateTime::createFromFormat('Y-m-d', $zeitgeistLatest->datestart)->getTimestamp());
+        $feed->setDateModified(DateTime::createFromFormat('Y-m-d', $zeitgeistLatest->dateend)->getTimestamp());
 
         foreach ($zeitgeists as $zeitgeist) {
             // Date handling
@@ -171,7 +171,7 @@ class zeitgeistActions extends sfActions
             $entry = $feed->createEntry();
             $entry->setTitle(sprintf('Zeitgeist Incongru #%d : du %s au %s', $zeitgeist->zeitgeistid, $datestartPretty, $dateendPretty));
             $entry->setLink('http://zeitgeist.musiques-incongrues.net/'.$zeitgeist->zeitgeistid);
-            $entry->setDateModified($dateTimeStart->getTimestamp());
+            $entry->setDateModified($dateTimeEnd->getTimestamp());
             $entry->setDateCreated($dateTimeEnd->getTimestamp());
             $defaultDescription = sprintf(
                 "\n".'Cette semaine : %d mixes, %d sorties, %d nouveaux venus et %d évènements à venir !',
