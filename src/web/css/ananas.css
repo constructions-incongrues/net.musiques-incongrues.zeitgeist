@@ -97,9 +97,6 @@ padding-bottom:20px;
   box-shadow: 4px 4px 2px #EEE;
   }
  
-  h1.logo:hover {transform: rotate(360deg) scale(0.4) ;}
-
-  
  /* navbar
   **********/
   
@@ -323,7 +320,7 @@ padding-bottom:20px;
  *  listings */ 
  
   .releases, .events,.picsofweek,.compte_rendu, .data, .newmember {width:350px!important;} 
-  .releases a, .events a, .data a {color:#000;font-size:1.16em;text-decoration:none;}
+  .releases a, .events a, .newdiscussions a, .activeexistingdiscussions a, .data a {color:#000;font-size:1.16em;text-decoration:none;}
   .releases .ville a, .releases .audio a,.events.ville a, .events .audio a {color:#0099FF;}
   .releases .image a,.releases .audio a, .releases .download a,.events .image a,.events .audio a, .events .download a {color:#0099FF;font-size:1.5em;}
   .releases .image a:hover,.events .image a:hover {color:#0099FF;}
@@ -332,29 +329,8 @@ padding-bottom:20px;
 .events .ville a
 {
 text-transform:capitalize;
-color:#;}
-.releases, .compte_rendu, .events,.picsofweek
-{
-    transition:.7s ease-in;
+color:#;
 }
-
-.releases:hover,.compte_rendu:hover
-{
-width:700px!important;
-margin-right:-360px;
-padding:0px 0px 0px 0px;
-z-index:2000;
-background-color:#f7f4f4;
-}
-
-.events:hover,.picsofweek:hover 
-{
-width:700px!important;
-margin-left:-360px!important;
-background-color:#f7f4f4;
-padding:0px 0px 0px 0px;
-}
-
 
 .releases dt, .events dt, .compte_rendu h3 {
 border-bottom:2px solid #bbb;
@@ -368,7 +344,7 @@ padding:5px 10px 5px 10px;
 font-weight:normal;
 }	
 
-.releases dd,.events dd,.data li
+.releases dd, .events dd, .newdiscussions dd, .activeexistingdiscussions dd, .data li
 {
 text-transform:lowercase;
 padding:5px;

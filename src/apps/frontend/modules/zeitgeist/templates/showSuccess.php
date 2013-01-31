@@ -20,6 +20,10 @@ function slugify($text)
 }
 ?>
 
+<?php slot('logo') ?>
+    <img src="<?php echo $zeitgeist->image ?>" title="L'image de la semaine" style="width:170px; height:170px;" />
+<?php end_slot() ?>
+
 <?php slot('navigation'); ?>
 <?php if ($zeitgeist->zeitgeistid > 1): ?>
     <h2 class="moreepisode previous"><a href="<?php echo url_for('@zeitgeist_show?id='.($sf_request->getParameter('id') - 1)) ?>">Previous</a></h2>
@@ -38,6 +42,7 @@ function slugify($text)
         <div class="presentation">
             <?php echo auto_link_text($sf_data->getRaw('description')) ?>
         </div>
+
     </div>
 
     <div class="grid_5 releases alpha">
@@ -84,15 +89,23 @@ function slugify($text)
 
 <div class="clear"></div>
 
-<div class="grid_6 compte_rendu alpha">
-    <h2><a href="http://github.com/constructions-incongrues/">Ananas Ex Machina !</a></h2>
-    <p><?php echo auto_link_text($sf_data->getRaw('ananasExMachina')) ?></p>
-</div><!-- end of grid_6 compte_rendu -->
+<div class="grid_5 newdiscussions alpha">
+    <h2><a href=""><?php echo count($discussionsNew) ?> Nouvelles Discussions</a></h2>
+    <dl>
+<?php foreach ($discussionsNew as $discussionNew): ?>
+        <dd><a href="http://www.musiques-incongrues.net/forum/discussion/<?php echo $discussionNew['discussionid'] ?>/<?php echo slugify($discussionNew['name'] ) ?>" title="Consultez la discussion sur le forum des Musiques Incongrues"><?php echo $discussionNew['name'] ?></a></dd>
+<?php endforeach; ?>
+    </dl>
+</div><!-- end of grid_6 newdiscussions -->
 
-<div class="grid_5 picsofweek omega">
-    <h2><a href="http://incongrunacotheque.tumblr.com">L'image de la semaine</a></h2>
-    <img src="<?php echo $zeitgeist->image ?>" width="300px" />
-</div><!-- end of grid_5picsofweek -->
+<div class="grid_6 activeexistingdiscussions omega">
+    <h2><a href=""><?php echo count($discussionsActiveExisting) ?> Discussions actives</a></h2>
+    <dl>
+<?php foreach ($discussionsActiveExisting as $discussionActiveExisting): ?>
+        <dd><a href="http://www.musiques-incongrues.net/forum/discussion/<?php echo $discussionActiveExisting['discussionid'] ?>/<?php echo slugify($discussionActiveExisting['name'] ) ?>" title="Consultez la discussion sur le forum des Musiques Incongrues"><?php echo $discussionActiveExisting['name'] ?></a></dd>
+<?php endforeach; ?>
+    </dl>
+</div><!-- end of grid_5 activeexistingdiscussions -->
 
 <div class="clear"></div>
 
@@ -106,7 +119,7 @@ function slugify($text)
 </div><!-- end of grid_6 newmember -->
 
 <div class="grid_5 data omega">
-<h2><a href="http://data.musiques-incongrues.net">Data</h2>
+<h2><a href="http://data.musiques-incongrues.net">Data</a></h2>
 <ul>
     <li><a target="_blank" href="<?php echo $data['all']['url'] ?>&viewmode=gallery"><?php echo $data['all']['count'] ?> nouveaux liens</a></li>
     <li><a target="_blank" href="<?php echo $data['images']['url'] ?>&viewmode=gallery"><?php echo $data['images']['count'] ?> nouvelles images</a></li>
@@ -117,7 +130,6 @@ function slugify($text)
 </div><!-- end of grid_11 -->
 
 <div class="clear"></div>
-
 
 <div class="grid_14 footer">
     <p class="about">

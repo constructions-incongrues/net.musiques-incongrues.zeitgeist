@@ -40,21 +40,19 @@
 
         <div class="grid_3 sidebar">
 
-   <h1 class="logo"  >
-        <a href="<?php echo url_for('@homepage') ?>" class="zeit">Zeit</a>
-        <a href="<?php echo url_for('@homepage') ?>" class="geist">Geist</a>
-    </h1>
+<h1 class="logo">
+<?php if (has_slot('logo')): ?>
+    <?php include_slot('logo') ?>
+<?php else: ?>
+    <a href="<?php echo url_for('@homepage') ?>" class="zeit">Zeit</a>
+    <a href="<?php echo url_for('@homepage') ?>" class="geist">Geist</a>
+<?php endif ?>
+</h1>
 
-    <h2 class="descr">Chaque semaine, le Zeitgeist Incongru résume l'actualité du forum des <a href="http://www.musiques-incongrues.net">Musiques Incongrues</a></h2>
 
-            <ul class="nav">
-                <li><a class="share" target="_blank" href="http://facebook.com/sharer.php?u=http://<?php echo $sf_request->getHost() ?><?php echo $_SERVER['REQUEST_URI']?>">Partager</a></li>
-                <li><a href="mailto:contact@musiques-incongrues.net">Contact</a></li>
-                <li><a href="http://feeds.feedburner.com/zeitgeist-incongru">RSS</a></li>
-            </ul>
-            <div class="pagination">
-                <h1>Archives</h1>
+<div class="pagination">
                 <!--
+                <h1>Archives</h1>
                 <ul>
                     <li class="active"><a href="/issues/1" title="Période du 6/05/2011 au 12/05/2011">▲ 1</a></li>
                     <li><a href="/issues/1" title="Période du 6/05/2011 au 12/05/2011">▲ 2</a></li>
@@ -62,8 +60,24 @@
                 -->
 <?php include_slot('navigation'); ?>
             </div><!-- end of.pagination -->
+<ul class="nav">
+    <li><a class="share" target="_blank" href="http://facebook.com/sharer.php?u=http://<?php echo $sf_request->getHost() ?><?php echo $_SERVER['REQUEST_URI']?>">Partager</a></li>
+    <li><a href="mailto:contact@musiques-incongrues.net">Contact</a></li>
+    <li><a href="http://feeds.feedburner.com/zeitgeist-incongru">RSS</a></li>
+</ul>
+
+<h2 class="descr">Chaque semaine, le Zeitgeist Incongru résume l'actualité du forum des <a href="http://www.musiques-incongrues.net">Musiques Incongrues</a></h2>
+
+<h1 class="logo">
+    <a href="<?php echo url_for('@homepage') ?>" class="zeit">Zeit</a>
+    <a href="<?php echo url_for('@homepage') ?>" class="geist">Geist</a>
+</h1>
+
         </div><!-- end of grid_3 -->
+
 <?php echo $sf_content ?>
+
+
 
     </div><!-- end of container_14 -->
 

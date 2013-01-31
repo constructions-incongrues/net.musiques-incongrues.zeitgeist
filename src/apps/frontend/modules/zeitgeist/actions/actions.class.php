@@ -84,6 +84,12 @@ class zeitgeistActions extends sfActions
             $data[$segment]['count'] = (int)$response['num_found'];            
         }
 
+        // TODO : Fetch all other new conversations
+        $discussionsNew = $zeitgeist->getNewDiscussions();
+
+        // TODO : Fetch all active conversations
+        $discussionsActiveExisting = $zeitgeist->getActiveExistingDiscussions();
+
         // Metadata
         $title = sprintf('Zeitgeist Incongru #%d : du %s au %s', $zeitgeist->zeitgeistid, $datestartPretty, $dateendPretty);
         $description = "Chaque semaine, le Zeitgeist Incongru résume l'actualité du forum des Musiques Incongrues : nouvelles productions, mixes et autres pièces. Il propose aussi un agenda des concerts pour la semaine à venir.";
@@ -120,6 +126,8 @@ class zeitgeistActions extends sfActions
         $this->ananasExMachina = $ananasExMachina;
         $this->description = $description;
         $this->lastZeitgeistId = LUM_ZeitgeistTable::getInstance()->getLatestIssue()->zeitgeistid;
+        $this->discussionsNew = $discussionsNew;
+        $this->discussionsActiveExisting = $discussionsActiveExisting;
         $this->data = $data;
 
         // Select template

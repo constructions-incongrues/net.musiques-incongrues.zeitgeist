@@ -13,3 +13,6 @@ src/config/databases.yml
 
 # configuration profiles
 etc/prod
+
+# composer
+vendor/*
