@@ -93,7 +93,7 @@ function slugify($text)
     <h2><a href=""><?php echo count($discussionsNew) ?> Nouvelles Discussions</a></h2>
     <dl>
 <?php foreach ($discussionsNew as $discussionNew): ?>
-        <dd><a href="http://www.musiques-incongrues.net/forum/discussion/<?php echo $discussionNew['discussionid'] ?>/<?php echo slugify($discussionNew['name'] ) ?>" title="Consultez la discussion sur le forum des Musiques Incongrues"><?php echo $discussionNew['name'] ?></a></dd>
+        <dd><a href="http://www.musiques-incongrues.net/forum/discussion/<?php echo $discussionNew['discussionid'] ?>/<?php echo slugify($discussionNew['name'] ) ?>" title="Consultez la discussion sur le forum des Musiques Incongrues"><?php echo truncate_text($discussionNew['name'], 45) ?></a></dd>
 <?php endforeach; ?>
     </dl>
 </div><!-- end of grid_6 newdiscussions -->
@@ -102,7 +102,7 @@ function slugify($text)
     <h2><a href=""><?php echo count($discussionsActiveExisting) ?> Discussions actives</a></h2>
     <dl>
 <?php foreach ($discussionsActiveExisting as $discussionActiveExisting): ?>
-        <dd><a href="http://www.musiques-incongrues.net/forum/discussion/<?php echo $discussionActiveExisting['discussionid'] ?>/<?php echo slugify($discussionActiveExisting['name'] ) ?>" title="Consultez la discussion sur le forum des Musiques Incongrues"><?php echo $discussionActiveExisting['name'] ?></a></dd>
+        <dd><a href="http://www.musiques-incongrues.net/forum/discussion/<?php echo $discussionActiveExisting['discussionid'] ?>/<?php echo slugify($discussionActiveExisting['name'] ) ?>" title="Consultez la discussion sur le forum des Musiques Incongrues"><?php echo truncate_text($discussionActiveExisting['name'], 50) ?></a></dd>
 <?php endforeach; ?>
     </dl>
 </div><!-- end of grid_5 activeexistingdiscussions -->
