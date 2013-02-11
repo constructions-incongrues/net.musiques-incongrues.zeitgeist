@@ -1,5 +1,5 @@
 {
-    "hash": "496b52efc5a6f64cba96ad273025462e",
+    "hash": "96f48279174f11095925af68ee355c4b",
     "packages": [
         {
             "name": "constructions-incongrues/ananas-build-toolkit",
@@ -23,139 +23,6 @@
                 "issues": "https://github.com/constructions-incongrues/ananas-build-toolkit/issues",
                 "source": "https://github.com/constructions-incongrues/ananas-build-toolkit"
             }
-        },
-        {
-            "name": "lexpress/doctrine1",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/LExpress/doctrine1",
-                "reference": "e6053c56ec274d8f519d5960ea29d121acd29dd6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/LExpress/doctrine1/archive/e6053c56ec274d8f519d5960ea29d121acd29dd6.zip",
-                "reference": "e6053c56ec274d8f519d5960ea29d121acd29dd6",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.3",
-                "ext-pdo": "*"
-            },
-            "replace": {
-                "doctrine/doctrine1": "*"
-            },
-            "time": "2012-10-30 16:42:12",
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Doctrine_": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL"
-            ],
-            "authors": [
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com",
-                    "homepage": "http://www.jwage.com/"
-                },
-                {
-                    "name": "Konsta Vesterinen",
-                    "email": "kvesteri@cc.hut.fi"
-                }
-            ],
-            "description": "PHP5 Database ORM",
-            "homepage": "http://www.doctrine-project.org",
-            "keywords": [
-                "database",
-                "orm"
-            ]
-        },
-        {
-            "name": "lexpress/symfony1",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/LExpress/symfony1",
-                "reference": "f45623efec5373919c3e8d488da1fddab55c0c4c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/LExpress/symfony1/zipball/f45623efec5373919c3e8d488da1fddab55c0c4c",
-                "reference": "f45623efec5373919c3e8d488da1fddab55c0c4c",
-                "shasum": ""
-            },
-            "require": {
-                "swiftmailer/swiftmailer": "4.2.*",
-                "lexpress/doctrine1": "*"
-            },
-            "time": "2013-01-23 11:38:05",
-            "bin": [
-                "data/bin/symfony"
-            ],
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "autoload.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Fork of symfony 1.4 with dic, form enhancements, latest swiftmailer and better performance"
-        },
-        {
-            "name": "swiftmailer/swiftmailer",
-            "version": "v4.2.2",
-            "source": {
-                "type": "git",
-                "url": "git://github.com/swiftmailer/swiftmailer.git",
-                "reference": "v4.2.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://github.com/swiftmailer/swiftmailer/zipball/v4.2.2",
-                "reference": "v4.2.2",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.4"
-            },
-            "time": "2012-10-25 01:30:40",
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.2-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "lib/swift_required.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Chris Corbyn"
-                }
-            ],
-            "description": "Swiftmailer, free feature-rich PHP mailer",
-            "homepage": "http://swiftmailer.org",
-            "keywords": [
-                "mail",
-                "mailer"
-            ]
         }
     ],
     "packages-dev": null,
@@ -164,8 +31,6 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "constructions-incongrues/ananas-build-toolkit": 20,
-        "lexpress/symfony1": 20,
-        "lexpress/doctrine1": 20
+        "constructions-incongrues/ananas-build-toolkit": 20
     }
 }
