@@ -21,7 +21,7 @@ function slugify($text)
 ?>
 
 <?php slot('logo') ?>
-    <img src="<?php echo $zeitgeist->image ?>" title="L'image de la semaine" style="width:170px; height:170px;" />
+    <img src="<?php echo $zeitgeist->image ?>" title="L'image de la semaine" style="width:170px;" />
 <?php end_slot() ?>
 
 <?php slot('navigation'); ?>

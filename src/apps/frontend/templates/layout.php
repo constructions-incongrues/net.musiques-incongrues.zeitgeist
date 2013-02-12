@@ -40,15 +40,17 @@
 
         <div class="grid_3 sidebar">
 
-<h1 class="logo">
+
 <?php if (has_slot('logo')): ?>
+    <h1>
     <?php include_slot('logo') ?>
+    </h1>
 <?php else: ?>
+<h1 class="logo">
     <a href="<?php echo url_for('@homepage') ?>" class="zeit">Zeit</a>
     <a href="<?php echo url_for('@homepage') ?>" class="geist">Geist</a>
-<?php endif ?>
 </h1>
-
+<?php endif ?>
 
 <div class="pagination">
                 <!--
